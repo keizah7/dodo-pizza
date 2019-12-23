@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch Beta 47 (45392) - http://www.bohemiancoding.com/sketch -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch Beta.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="0%" fx="50%" fy="0%" r="100%" gradientTransform="translate(0.500000,0.000000),rotate(90.000000),scale(1.000000,2.174399),translate(-0.500000,-0.000000)" id="radialGradient-1">
+            <stop stop-color="#FF7C00" offset="0%"></stop>
+            <stop stop-color="#F76600" offset="100%"></stop>
+        </radialGradient>
+        <linearGradient x1="50%" y1="-2.48949813e-15%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#F57600" offset="0%"></stop>
+            <stop stop-color="#EA6000" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="GS.Mob.Menu" transform="translate(-343.000000, -16.000000)" fill="#FFFFFF">
+            <g id="Header">
+                <g id="🔸Menu" transform="translate(327.000000, 0.000000)">
+                    <path d="M25.8447968,24.135462 L31.8823198,18.097939 C32.3586672,17.6215916 32.3586672,16.8492798 31.8823198,16.3729324 C31.4059724,15.896585 30.6336606,15.896585 30.1573132,16.3729324 L24.1197902,22.4104554 L18.0822671,16.3729324 C17.6059197,15.896585 16.833608,15.896585 16.3572606,16.3729324 C15.8809131,16.8492798 15.8809131,17.6215916 16.3572606,18.097939 L22.3947836,24.135462 L16.3572606,30.1729851 C15.8809131,30.6493325 15.8809131,31.4216442 16.3572606,31.8979916 C16.833608,32.3743391 17.6059197,32.3743391 18.0822671,31.8979916 L24.1197902,25.8604686 L30.1573132,31.8979916 C30.6336606,32.3743391 31.4059724,32.3743391 31.8823198,31.8979916 C32.3586672,31.4216442 32.3586672,30.6493325 31.8823198,30.1729851 L25.8447968,24.135462 Z" id="Combined-Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
