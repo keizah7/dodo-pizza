@@ -9,25 +9,185 @@
 </head>
 <body>
     <header>
-        HEADER
+        <div class="container">
+            <div class="to-lg flex space-between">
+                <div class="logo">
+                    <img src="./public/img/logo-mini.jpg" alt="Dodo Pizza logotipas">
+                </div>
+                <img class="h-btn toggle" src="./public/img/toggle.svg" alt="Toggle Menu">
+    
+                <div class="m-logo">
+                    <img src="./public/img/logo-black.jpg" alt="Dodo Pizza logotipas">
+                </div>
+                <img class="h-btn close" src="./public/img/close.svg" alt="Close Menu">
+            </div>
+            <div class="from-lg">
+                <a href=""><img src="./public/img/logotipas.png" alt="Logotipas"></a>
+                <div class="text">
+                    <p>Nemokamas picų pristatymas <span>Vilnius</span></p>
+                    <p class="muted">60 minučių arba sekanti pica nemokamai</p>
+                </div>
+                <div class="contacts">
+                    <p class="muted">Skambinkite</p>
+                    <a href="tel:863511555">8 635 11 555</a>
+                </div>
+                <div class="log-in">
+                    <a href="#" class="btn white">Prisijungti</a>
+                </div>
+            </div>
+        </div>
     </header>
-    <nav>
-        NAV
+    <nav class="from-lg">
+        <div class="container flex space-between align-items-center">
+            <div class="links flex ">
+                <div class="logo">
+                    <a href="#"><img src="./img/dodo.png" alt="Logo"></a>
+                </div>
+                <a href="#">Picos</a>
+                <a href="#">Akcijos</a>
+                <a href="#">Kontaktai</a>
+                <a class="live" href="http://dodopizza.lt">Tiesioginė transliacija</a>
+            </div>
+
+            <a href="./cart.html" class="btn orange-cart">Krepšelis</a>
+        </div>
     </nav>
 
-    <div class="carousel">
-        CAROUSEL
-    </div>
+    <section class="carousel from-lg">
+        <div class="slide"><img src="./public/img/carousel/1.jpeg"></div>
+        <div class="slide"><img src="./public/img/carousel/2.jpeg"></div>
+        <div class="slide"><img src="./public/img/carousel/3.jpeg"></div>
+        <div class="slide"><img src="./public/img/carousel/4.jpeg"></div>
+    
+        <a class="prev" onclick="changeSlides(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlides(1)">&#10095;</a>
+    
+        <div class = "dots" style="text-align:center">
+            <span class="dot" onclick="switchToSlide(1)"></span>
+            <span class="dot" onclick="switchToSlide(2)"></span>
+            <span class="dot" onclick="switchToSlide(3)"></span>
+            <span class="dot" onclick="switchToSlide(4)"></span>
+        </div> 
+    </section>
 
-    <div class="pizzas">
-        &#x1F355;
-    </div>
+    <section class="pizzas container">
+        <div class="col">
+            <a href="#"><img src="./public/img/pizza/1.jpg" alt="Pica"></a>
+            <div class="pizza-info">
+                <h3>Christmas Pizza</h3>
+                <p>Vištiena, spanguolių padažas, bruknes, šoninė, raudonieji svogūnai, mocarelos suris, česnakinis padažas</p>
+            </div>
+            <div class="sm-md-only">
+                <a href="#" class="btn">nuo 7.50 €</a>
+            </div>
+            <div class="from-lg">
+                <div class="flex space-between align-items-center">
+                    <span>nuo 7.50 €</span>
+                    <a href="#" class="btn">Pasirinkti</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <a href="#"><img src="./public/img/pizza/2.jpg" alt="Pica"></a>
+            <div class="pizza-info">
+                <h3>Christmas Pizza</h3>
+                <p>Vištiena, spanguolių padažas, bruknes, šoninė, raudonieji svogūnai, mocarelos suris, česnakinis padažas</p>
+            </div>
+            <div class="sm-md-only">
+                <a href="#" class="btn">nuo 8.50 €</a>
+            </div>
+            <div class="from-lg">
+                <div class="flex space-between align-items-center">
+                    <span>nuo 7.50 €</span>
+                    <a href="#" class="btn">Pasirinkti</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <a href="#"><img src="./public/img/pizza/3.jpg" alt="Pica"></a>
+            <div class="pizza-info">
+                <h3>Christmas Pizza</h3>
+                <p>Vištiena, spanguolių padažas, bruknes, šoninė, raudonieji svogūnai, mocarelos suris, česnakinis padažas</p>
+            </div>
+            <div class="sm-md-only">
+                <a href="#" class="btn">nuo 9.50 €</a>
+            </div>
+            <div class="from-lg">
+                <div class="flex space-between align-items-center">
+                    <span>nuo 7.50 €</span>
+                    <a href="#" class="btn">Pasirinkti</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <a href="#"><img src="./public/img/pizza/4.jpg" alt="Pica"></a>
+            <div class="pizza-info">
+                <h3>Christmas Pizza</h3>
+                <p>Vištiena, spanguolių padažas, bruknes, šoninė, raudonieji svogūnai, mocarelos suris, česnakinis padažas</p>
+            </div>
+            <div class="sm-md-only">
+                <a href="#" class="btn">nuo 5.50 €</a>
+            </div>
+            <div class="from-lg">
+                <div class="flex space-between align-items-center">
+                    <span>nuo 7.50 €</span>
+                    <a href="#" class="btn">Pasirinkti</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <div class="secret-buyer">
-        SECRET BUYER
+        <div class="container">
+            <div class="to-lg">
+                <a class="flex space-between align-items-center" href="#">
+                    <p>Tapti slaptuoju pirkėju</p>
+                    <span class="lnr lnr-chevron-right"></span>
+                </a>
+            </div>
+            <div class="from-lg">
+                <div class="flex space-between align-items-center">
+                    <div class="flex align-items-center">
+                        <img src="./public/img/secret-buyer.png" alt="">
+                        <p>Tapk Dodo Pizza slaptu pirkėju ir gauk picą dovanų</p>
+                    </div>
+                    <div>
+                        <a class="btn orange" href="#">Užpildyti anketą</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <footer>
-        FOOTER
+        <div class="container">
+            <div class="top">
+                <div class="contacts">
+                    <div class="phone">
+                        <p>Skambinkite</p>
+                        <a href="tel:863511555">8 635 11 555</a>
+                    </div>
+                    <div class="email">
+                        <a href="mailto:kokybe@dodopizza.lt">kokybe@dodopizza.lt</a>
+                    </div>
+                </div>
+                <div class="links">
+                    <a href="#">Darbas Picerijoje</a>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="social">
+                    <a href="#"></a><img src="./public/img/ig.png" alt="Instagram"></a>
+                </div>
+                <div class="links flex">
+                    <a href="#">Teisinė informacija</a>
+                    <a href="#">Alergenai ir informacija apie maistingumą</a>
+                </div>
+                <div class="copyright flex">
+                    <img src="./public/img/url.png" alt="Dodo Pizza">
+                    <p>&copy; 2019</p>
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
