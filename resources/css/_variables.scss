@@ -7,14 +7,7 @@ $colors: (
 	dark: #000
 );
 
-@function color($color-name) {
-	@return map-get($colors, $color-name);
-}
 
-@mixin size($x) {
-	font-size: #{$x}rem;
-	line-height: #{$x + 0.5}rem;
-}
 
 $sm: 576px;
 $md: 768px;
