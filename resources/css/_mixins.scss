@@ -1,0 +1,16 @@
+@mixin size($x) {
+	font-size: #{$x}rem;
+	line-height: #{$x + 0.5}rem;
+}
+
+@mixin has($name) {
+	@at-root &__#{$name} {
+		@content;
+	}
+}
+
+@mixin and($name) {
+	@at-root &--#{$name} {
+		@content;
+	}
+}
