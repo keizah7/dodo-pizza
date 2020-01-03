@@ -1,0 +1,124 @@
+.header {
+	background: color(light);
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+	padding: .5em 0;
+
+	@include has(content) {
+		@extend .container;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		// @include since-md {
+		// 	&:not(.from-lg) {
+		// 		display: none;
+		// 	}
+		// }
+	}
+
+	@include has(logo) {
+		a:last-child {
+			display: none;
+		}
+	}
+
+	@include has(trigger) {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		height: 35px;
+		width: 35px;
+
+		img {
+			margin: auto;
+		}
+
+		a:last-child {
+			display: none;
+		}
+	}
+
+	@include and(is-opened) {
+		background: color(dark);
+
+		.header__logo {
+			img:first-child {
+				display: none;
+			}
+			img:last-child {
+				display: unset;
+			}
+		}
+
+		.header__trigger {
+			img:first-child {
+				display: none;
+			}
+			img:last-child {
+				display: unset;
+			}
+		}
+	}
+}
+
+.mobile-nav {
+	background: black;
+	position: fixed;
+	top: 51px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 2;
+	@include size(1.2);
+	border-top: 1px solid hsla(0, 0%, 100%, .2);
+	display: none;
+
+	@include and(is-opened) {
+		display: unset;
+	}
+
+	@include has(content) {
+		@extend .container;
+		display: flex;
+		flex-direction: column;
+	}
+
+	@include has(location) {
+		color: color(light);
+		padding: 1em;
+		border-bottom: 1px solid hsla(0, 0%, 100%, .2);
+		display: flex;
+
+		img {
+			height: 22px;
+			margin-right: .6em;
+		}
+
+		p {
+			span {
+				@include size(.8);
+				opacity: .5;
+				display: block;
+			}
+		}
+	}
+
+	@include has(contacts) {
+		@extend .mobile-nav__location;
+	}
+
+	@include has(links) {
+		display: flex;
+		flex-direction: column;
+		padding: 1em;
+		padding-bottom: 0;
+		padding-left: 2.3em;
+		border-bottom: 1px solid hsla(0, 0%, 100%, .2);
+
+		a {
+			color: color(link);
+			text-decoration: none;
+			margin-bottom: 1em;
+		}
+	}
+}
