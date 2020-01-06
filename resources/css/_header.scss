@@ -42,10 +42,10 @@
 		background: color(dark);
 
 		.header__logo {
-			img:first-child {
+			a:first-child {
 				display: none;
 			}
-			img:last-child {
+			a:last-child {
 				display: unset;
 			}
 		}
