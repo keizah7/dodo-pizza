@@ -1,0 +1,35 @@
+.btn {
+	background: color(primary);
+	color: color(light);
+	padding: .6em 1.3em;
+	border-radius: 9px;
+	display: inline-block;
+	text-decoration: none;
+	border: none;
+	text-align: center;
+	@include size(.9);
+
+	&:hover {
+		box-shadow: 0px 0px 7px 7px rgba(158, 158, 158, .2);
+		cursor: pointer;
+	}
+
+	@include and(white) {
+		background: color(light);
+		color: color(dark);
+		border: 1px solid #babfd0;
+		border-radius: 100%;
+		padding: .7em;
+		font-weight: bolder;
+
+		&:hover {
+			box-shadow: none;
+			color: color(primary);
+			border-color: color(primary);
+		}
+	}
+
+	@include and(block) {
+		display: block;
+	}
+}

@@ -1,0 +1,96 @@
+.secret-buyer {
+	background: color(primary);
+	color: color(white);
+
+	@include has(content) {
+		a {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+
+	.col p {
+		margin-left: 1em;
+	}
+
+	a {
+		color: color(link);
+		text-decoration: none;
+		padding: 1em;
+
+		div {
+			padding: 1em;
+			background: red;
+		}
+	}
+
+	.from-lg {
+		padding: 1px;
+	}
+
+	&:hover {
+		background: color(primary-dark);
+	}
+}
+
+.footer {
+	background: #373535;
+	color: color(light);
+	padding: 1.5em;
+
+	a,
+	p {
+		opacity: .7;
+	}
+
+	a {
+		color: color(link);
+		text-decoration: none;
+
+		&:hover {
+			color: color(link-dark);
+		}
+	}
+	@include has(phone) {
+		margin-bottom: 1em;
+		border: none;
+
+		a {
+			color: color(link);
+			opacity: 1;
+			@include size(1.5);
+		}
+	}
+
+	@include has(email) {
+		border-bottom: 1px solid hsla(0, 0%, 100%, .1);
+		padding-bottom: 1em;
+	}
+	@include has(links) {
+		@extend .footer__email;
+		padding: 1em 0;
+		display: flex;
+		flex-direction: column;
+
+		a {
+			&:not(:last-child) {
+				margin-bottom: 1em;
+			}
+		}
+	}
+	@include has(social) {
+		@extend .footer__email;
+		padding: 1em;
+		padding-left: 0;
+	}
+
+	@include has(copyright) {
+		margin-top: 1em;
+		border: none;
+		display: flex;
+
+		p {
+			margin-left: 1em;
+		}
+	}
+}

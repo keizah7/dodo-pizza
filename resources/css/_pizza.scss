@@ -1,0 +1,29 @@
+.pizza {
+	margin: 2em 0;
+
+	@include has(content) {
+		@extend .container;
+	}
+
+	@include has(item) {
+		padding: 0.3em;
+		text-align: center;
+		margin-bottom: 2em;
+
+		img {
+			display: block;
+			margin: auto;
+			&:hover {
+				margin-top: -5px;
+				margin-bottom: 5px;
+			}
+		}
+	}
+
+	@include has(info) {
+		p {
+			padding: 1em;
+			padding-left: 0;
+		}
+	}
+}

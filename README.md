@@ -1,10 +1,10 @@
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 [![Chat](https://img.shields.io/discord/620935790867906561?label=chat)](https://discordapp.com/channels/620935790867906561)
-![HitCount](http://hits.dwyl.io/keizah7/php-pizzeria.svg)
-![Forks](https://img.shields.io/github/forks/keizah7/php-pizzeria?style=social)
-![Stars](https://img.shields.io/github/stars/keizah7/php-pizzeria?style=social)
-![Watchers](https://img.shields.io/github/watchers/keizah7/php-pizzeria?style=social)
-![Contributors](https://img.shields.io/github/contributors/keizah7/php-pizzeria)
+![HitCount](http://hits.dwyl.io/keizah7/dodo-pizza.svg)
+![Forks](https://img.shields.io/github/forks/keizah7/dodo-pizza?style=social)
+![Stars](https://img.shields.io/github/stars/keizah7/dodo-pizza?style=social)
+![Watchers](https://img.shields.io/github/watchers/keizah7/dodo-pizza?style=social)
+![Contributors](https://img.shields.io/github/contributors/keizah7/dodo-pizza)
 
 # Laravel Pizzeria
 ### BIT užduotis:
@@ -14,9 +14,9 @@
 - BACK-END (PHP (Laravel 6))
 - Integruoti Paysera mokėjimus
 
-This project is for educational porpuses only. Pull request are welcome, but priority for my real-life students! Thank you for your cooperation!
+This project is for educational porpuses only. Pull request are welcome! Thank you for your cooperation!
 
-Site published at https://keizah7.io/php-pizzeria/index.html
+Site published at https://keizah7.github.io/dodo-pizza/
 
 Example: [dodopizza.lt](https://dodopizza.lt)
 

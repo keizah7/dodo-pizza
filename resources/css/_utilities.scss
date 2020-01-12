@@ -1,0 +1,5 @@
+.from-lg {
+    @media (max-width: $md) {
+        display: none;
+    }
+}
