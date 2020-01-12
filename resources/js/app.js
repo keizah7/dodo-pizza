@@ -5,15 +5,17 @@ function toggleMobileNav() {
     document.querySelector('.mobile-nav').classList.toggle('mobile-nav--is-opened');
 }
 
-// function hideHeader() {
-//     var navbar = document.querySelector("nav");
-//     var sticky = navbar.offsetTop;
+var navbar = document.querySelector("nav");
+var sticky = navbar.offsetTop;
 
-//     if (window.pageYOffset >= sticky) {
-//         navbar.classList.add("sticky")
-//     } else {
-//         navbar.classList.remove("sticky");
-//     }
-// }
+function hideHeader() {
+    if (window.pageYOffset >= sticky) {
+        navbar.classList.add("nav--sticky")
+    } else {
+        navbar.classList.remove("nav--sticky");
+    }
+}
 
-// window.addEventListener('scroll', hideHeader);
+window.onscroll = function () {
+    this.hideHeader()
+};

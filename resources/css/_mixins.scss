@@ -15,8 +15,15 @@
 	}
 }
 
-@mixin since-md {
-	@media (min-width: #{$md+1}) {
+/* media */
+@mixin till-lg {
+	@media (max-width: #{$lg - 1}) {
+		@content;
+	}
+}
+
+@mixin from-lg {
+	@media (min-width: #{$lg}) {
 		@content;
 	}
 }
