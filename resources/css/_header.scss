@@ -57,10 +57,10 @@
 
 		img {
 			margin: auto;
-		}
 
-		a:last-child {
-			display: none;
+			&:last-child {
+				display: none;
+			}
 		}
 	}
 
