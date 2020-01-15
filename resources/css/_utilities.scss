@@ -1,5 +1,11 @@
 .from-lg {
-	@include till-lg {
+	@include till-lg-end {
+		display: none;
+	}
+}
+
+.from-sm {
+	@include till-sm-end {
 		display: none;
 	}
 }

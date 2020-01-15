@@ -16,7 +16,13 @@
 }
 
 /* media */
-@mixin till-lg {
+@mixin till-sm-end {
+	@media (max-width: #{$sm - 1}) {
+		@content;
+	}
+}
+
+@mixin till-lg-end {
 	@media (max-width: #{$lg - 1}) {
 		@content;
 	}
