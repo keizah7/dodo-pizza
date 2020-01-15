@@ -29,6 +29,16 @@
 		}
 	}
 
+	@include and(outline-white) {
+		border: 1px solid color(light);
+		padding: .5em 1em;
+
+		&:hover {
+			background: color(light);
+			color: color(primary);
+		}
+	}
+
 	@include and(block) {
 		display: block;
 	}

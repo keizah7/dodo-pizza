@@ -3,29 +3,41 @@
 	color: color(white);
 
 	@include has(content) {
-		a {
-			display: flex;
-			justify-content: space-between;
-		}
-	}
-
-	.col p {
-		margin-left: 1em;
-	}
-
-	a {
-		color: color(link);
-		text-decoration: none;
+		@extend .container;
 		padding: 1em;
 
-		div {
-			padding: 1em;
-			background: red;
+		a:not(.btn) {
+			display: flex;
+			justify-content: space-between;
+			color: color(link);
+			text-decoration: none;
+				adding: 1em;
+			
+			div {
+				padding: 1em;
+				background: red;
+			}
 		}
-	}
+		
+		@include from-lg {
+			color: color(light);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: .7em;
 
-	.from-lg {
-		padding: 1px;
+			&:not(.from-lg) {
+				display: none;
+			}
+
+			.flex {
+				align-items: center;
+
+				img {
+					margin-right: 1em;
+				}
+			}
+		}
 	}
 
 	&:hover {
@@ -37,6 +49,10 @@
 	background: #373535;
 	color: color(light);
 	padding: 1.5em;
+
+	@include has(content) {
+		@extend .container;
+	}
 
 	a,
 	p {
