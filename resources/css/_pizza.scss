@@ -1,8 +1,26 @@
 .pizza {
 	margin: 2em 0;
 
+	@include from-x-to-md {
+		margin-top: 3em;
+	}
+
 	@include has(content) {
 		@extend .container;
+
+		@include from-md-to-lg {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 0em 1em;
+		}
+
+		@include from-lg {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			gap: 1em 2em;
+			text-align: center;
+			text-align: left;
+		}
 	}
 
 	@include has(item) {
@@ -13,10 +31,30 @@
 		img {
 			display: block;
 			margin: auto;
+			max-width: 100%;
+
 			&:hover {
 				margin-top: -5px;
 				margin-bottom: 5px;
+
+				@include from-x-to-lg {
+					margin-top: -6%;
+					margin-bottom: 6%;
+				}
 			}
+		}
+
+		@include from-x-to-lg {
+			display: grid;
+			grid-template-columns: .7fr 1fr;
+			grid-template-areas: 'photo info' 'photo button' 'photo .';
+			gap: 0 1em;
+			padding: 0;
+		}
+
+		@include from-lg {
+			display: grid;
+			grid-template-rows: 1fr .5fr auto;
 		}
 	}
 
@@ -24,6 +62,45 @@
 		p {
 			padding: 1em;
 			padding-left: 0;
+			opacity: .5;
+		}
+
+		@include from-x-to-lg {
+			grid-area: info;
+			text-align: left;
+			p {
+				padding-right: 0;
+			}
+		}
+
+		@include from-lg {
+			text-align: left;
+		}
+	}
+
+	@include has(img) {
+		@include from-x-to-lg {
+			grid-area: photo;
+			img {
+				margin-top: -8%;
+				margin-bottom: 8%;
+			}
+		}
+	}
+
+	@include has(button) {
+		@include from-x-to-lg {
+			text-align: left;
+		}
+
+		@include from-lg {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			
+			&:not(.from-lg) {
+				display: none;
+			}
 		}
 	}
 }

@@ -1,5 +1,25 @@
 .from-lg {
-    @media (max-width: $md) {
-        display: none;
-    }
+	@include till-lg-end {
+		display: none;
+	}
+}
+
+.from-sm {
+	@include till-sm-end {
+		display: none;
+	}
+}
+
+.till-lg {
+	@include from-lg {
+		display: none;
+	}
+}
+
+.flex {
+	display: flex;
+}
+
+.grid {
+	display: grid;
 }
