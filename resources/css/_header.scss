@@ -5,15 +5,41 @@
 
 	@include has(content) {
 		@extend .container;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
 
-		// @include since-md {
-		// 	&:not(.from-lg) {
-		// 		display: none;
-		// 	}
-		// }
+		.flex {
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		&.from-lg {
+			.grid {
+				grid-template-columns: 1fr 1fr 1fr auto;
+				align-items: center;
+			}
+
+			img {
+				margin-top: -7px;
+			}
+		}
+	}
+
+	@include has(text) {
+		margin-top: 6px;
+
+		p {
+			font-weight: bolder;
+
+			span {
+				color: color(primary);
+			}
+		}
+	}
+
+	@include has(contacts) {
+		a {
+			color: black;
+			text-decoration: none;
+		}
 	}
 
 	@include has(logo) {
@@ -31,10 +57,10 @@
 
 		img {
 			margin: auto;
-		}
 
-		a:last-child {
-			display: none;
+			&:last-child {
+				display: none;
+			}
 		}
 	}
 
@@ -58,6 +84,87 @@
 				display: unset;
 			}
 		}
+	}
+}
+
+.nav {
+	background: white;
+	padding: .5em 0 .5em 0;
+	border-bottom: 1px solid #e6e6e6;
+
+	@include and(sticky) {
+		position: sticky;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+
+		.nav__logo {
+			display: unset;
+		}
+	}
+
+	@include has(content) {
+		@extend .container;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	@include has(links) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		a {
+			color: black;
+			text-decoration: none;
+			@include size(.9);
+			font-weight: bolder;
+			padding: .6em 0 .5em 0;
+
+			&:not(:last-child) {
+				margin-right: 1.5em;
+			}
+
+			&:hover {
+				color: color(primary);
+			}
+
+			&.live {
+				position: relative;
+				margin-left: 1em;
+
+				&::before {
+					content: '';
+					background: red none repeat scroll 0% 0%;
+					width: 9px;
+					height: 9px;
+					position: absolute;
+					left: -18px;
+					bottom: 15px;
+					border-radius: 50%;
+					animation: 2s ease-in-out 0s infinite normal none running pulse;
+				}
+			}
+		}
+	}
+
+	@include has(logo) {
+		margin-right: 1em;
+		display: none;
+	}
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
 	}
 }
 

@@ -3,29 +3,41 @@
 	color: color(white);
 
 	@include has(content) {
-		a {
-			display: flex;
-			justify-content: space-between;
-		}
-	}
-
-	.col p {
-		margin-left: 1em;
-	}
-
-	a {
-		color: color(link);
-		text-decoration: none;
+		@extend .container;
 		padding: 1em;
 
-		div {
-			padding: 1em;
-			background: red;
+		a:not(.btn) {
+			display: flex;
+			justify-content: space-between;
+			color: color(link);
+			text-decoration: none;
+				adding: 1em;
+			
+			div {
+				padding: 1em;
+				background: red;
+			}
 		}
-	}
+		
+		@include from-lg {
+			color: color(light);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: .7em 0;
 
-	.from-lg {
-		padding: 1px;
+			&:not(.from-lg) {
+				display: none;
+			}
+
+			.flex {
+				align-items: center;
+
+				img {
+					margin-right: 1em;
+				}
+			}
+		}
 	}
 
 	&:hover {
@@ -38,19 +50,24 @@
 	color: color(light);
 	padding: 1.5em;
 
-	a,
-	p {
-		opacity: .7;
-	}
+	@include has(content) {
+		@extend .container;
 
-	a {
-		color: color(link);
-		text-decoration: none;
+		a,
+		p {
+			opacity: .7;
+		}
 
-		&:hover {
-			color: color(link-dark);
+		a {
+			color: color(link);
+			text-decoration: none;
+	
+			&:hover {
+				color: color(link-dark);
+			}
 		}
 	}
+
 	@include has(phone) {
 		margin-bottom: 1em;
 		border: none;
@@ -65,6 +82,10 @@
 	@include has(email) {
 		border-bottom: 1px solid hsla(0, 0%, 100%, .1);
 		padding-bottom: 1em;
+
+		@include from-lg {
+			border: none;
+		}
 	}
 	@include has(links) {
 		@extend .footer__email;
@@ -75,6 +96,10 @@
 		a {
 			&:not(:last-child) {
 				margin-bottom: 1em;
+				
+				@include from-lg {
+					margin-bottom: 0;
+				}
 			}
 		}
 	}
@@ -91,6 +116,49 @@
 
 		p {
 			margin-left: 1em;
+		}
+	}
+
+	@include from-lg {
+		@include has(top) {
+			display: flex;
+			justify-content: space-between;
+			border-bottom: 1px solid hsla(0, 0%, 100%, .1);
+		}
+
+		@include has(links) {
+			order: -1;
+			grid-area: links;
+			flex-direction: row;
+
+			a {
+				margin-right: 1.5em;
+			}
+		}
+
+		@include has(bottom) {
+			display: grid;
+			grid-template-areas:
+				'copyright links . social'
+			;
+			grid-template-columns: .4fr 1fr auto;
+			grid-template-rows: auto;
+			align-items: center;
+		}
+
+		@include has(copyright) {
+			grid-area: copyright;
+			margin-top: 0;
+			align-items: center;
+		}
+
+		@include has(social) {
+			grid-area: social;
+			padding: 0;
+		}
+
+		.footer__email, .footer__links, .footer__social {
+			border: none;
 		}
 	}
 }

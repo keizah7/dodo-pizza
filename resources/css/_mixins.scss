@@ -15,8 +15,42 @@
 	}
 }
 
-@mixin since-md {
-	@media (min-width: #{$md+1}) {
+/* media */
+@mixin from-x-to-md {
+	@media (min-width: 400px) and (max-width: #{$md - 1}) {
+		@content;
+	}
+}
+
+@mixin from-md-to-lg {
+	@media (min-width: #{$md}) and (max-width: #{$lg - 1}) {
+		@content;
+	}
+}
+
+@mixin from-x-to-lg {
+	@media (min-width: 400px) and (max-width: #{$lg - 1}) {
+		@content;
+	}
+}
+
+
+
+
+@mixin till-sm-end {
+	@media (max-width: #{$sm - 1}) {
+		@content;
+	}
+}
+
+@mixin till-lg-end {
+	@media (max-width: #{$lg - 1}) {
+		@content;
+	}
+}
+
+@mixin from-lg {
+	@media (min-width: #{$lg}) {
 		@content;
 	}
 }
