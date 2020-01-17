@@ -4,7 +4,7 @@
     @include('layouts.breadcrumb', [
         'links' => [
             __('dashboard.aside.data.title'),
-            __('dashboard.type.index.title'),
+            __('dashboard.type.title'),
             __('dashboard.edit.title')
         ],
     ])
@@ -16,15 +16,15 @@
                 @csrf
 
                 <div class="field">
-                    <label class="label">@lang('dashboard.type.title.title')</label>
+                    <label class="label">@lang('dashboard.data.title')</label>
                     <div class="control">
-                        <input value="{{ old('title', $type->title) }}" name="title" class="input" type="text" placeholder="@lang('dashboard.type.create.title.placeholder')" required>
+                        <input value="{{ old('title', $type->title) }}" name="title" class="input" type="text" placeholder="@lang('dashboard.data.title.placeholder')" required>
                     </div>
                     @error('title')<p class="help is-danger">{{ $message }}</p>@enderror
                 </div>
 
                 <div class="field">
-                    <label class="label">@lang('dashboard.type.priority.title')</label>
+                    <label class="label">@lang('dashboard.data.priority')</label>
                     <div class="control">
                         <input value="{{ old('priority', $type->priority) }}" name="priority" class="input" type="number" placeholder="0" required>
                     </div>
