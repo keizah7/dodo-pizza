@@ -32,11 +32,11 @@
                             <i class="fas fa-bars"></i>
                         </a>
                     </div>
-{{--                    <div class="navbar-item has-control has-control-without-left-space">--}}
-{{--                        <div class="control">--}}
-{{--                            <input class="input" placeholder="Paieška">--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+                    {{--                    <div class="navbar-item has-control has-control-without-left-space">--}}
+                    {{--                        <div class="control">--}}
+                    {{--                            <input class="input" placeholder="Paieška">--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
                 </div>
 
                 <div class="navbar-brand is-right">
@@ -69,25 +69,25 @@
                             </a>
 
                             <div class="navbar-dropdown">
-{{--                                <a class="navbar-item">--}}
-{{--                                    <span class="icon">--}}
-{{--                                        <i class="fas fa-user"></i>--}}
-{{--                                    </span>--}}
-{{--                                    <span>Mano paskyra</span>--}}
-{{--                                </a>--}}
-{{--                                <a class="navbar-item">--}}
-{{--                                    <span class="icon">--}}
-{{--                                        <i class="fas fa-cog"></i>--}}
-{{--                                    </span>--}}
-{{--                                    <span>Nustatymai</span>--}}
-{{--                                </a>--}}
-{{--                                <a class="navbar-item">--}}
-{{--                                    <span class="icon">--}}
-{{--                                        <i class="fas fa-envelope"></i>--}}
-{{--                                    </span>--}}
-{{--                                    <span>Žinutės</span>--}}
-{{--                                </a>--}}
-{{--                                <hr class="navbar-divider">--}}
+                                {{--                                <a class="navbar-item">--}}
+                                {{--                                    <span class="icon">--}}
+                                {{--                                        <i class="fas fa-user"></i>--}}
+                                {{--                                    </span>--}}
+                                {{--                                    <span>Mano paskyra</span>--}}
+                                {{--                                </a>--}}
+                                {{--                                <a class="navbar-item">--}}
+                                {{--                                    <span class="icon">--}}
+                                {{--                                        <i class="fas fa-cog"></i>--}}
+                                {{--                                    </span>--}}
+                                {{--                                    <span>Nustatymai</span>--}}
+                                {{--                                </a>--}}
+                                {{--                                <a class="navbar-item">--}}
+                                {{--                                    <span class="icon">--}}
+                                {{--                                        <i class="fas fa-envelope"></i>--}}
+                                {{--                                    </span>--}}
+                                {{--                                    <span>Žinutės</span>--}}
+                                {{--                                </a>--}}
+                                {{--                                <hr class="navbar-divider">--}}
                                 <a class="navbar-item" href="/">
                                     <span class="icon">
                                         <i class="fas fa-sign-out-alt"></i>
@@ -109,12 +109,12 @@
                             </a>
 
                             <div class="navbar-dropdown">
-{{--                                <a class="navbar-item">--}}
-{{--                                    <span class="icon">--}}
-{{--                                        <i class="fas fa-book"></i>--}}
-{{--                                    </span>--}}
-{{--                                    <span>1</span>--}}
-{{--                                </a>--}}
+                                {{--                                <a class="navbar-item">--}}
+                                {{--                                    <span class="icon">--}}
+                                {{--                                        <i class="fas fa-book"></i>--}}
+                                {{--                                    </span>--}}
+                                {{--                                    <span>1</span>--}}
+                                {{--                                </a>--}}
                                 <a class="navbar-item">
                                     <span class="icon">
                                         <i class="fas fa-cloud"></i>
@@ -186,26 +186,26 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{ route('dashboard.type.index') }}">
+                                            <a href="{{ route('dashboard.group.index') }}">
                                                 <span>@lang('dashboard.group.title')</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
 
-{{--                                <li>--}}
-{{--                                    <a href="{{ route('dashboard.type.index') }}">--}}
-{{--                                        <span class="icon"><i class="fas fa-folder"></i></span>--}}
-{{--                                        <span class="menu-item-label">Kategorijos</span>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
+                                {{--                                <li>--}}
+                                {{--                                    <a href="{{ route('dashboard.type.index') }}">--}}
+                                {{--                                        <span class="icon"><i class="fas fa-folder"></i></span>--}}
+                                {{--                                        <span class="menu-item-label">Kategorijos</span>--}}
+                                {{--                                    </a>--}}
+                                {{--                                </li>--}}
 
-{{--                                <li>--}}
-{{--                                    <a href="{{ route('dashboard.type.index') }}">--}}
-{{--                                        <span class="icon"><i class="fas fa-users"></i></span>--}}
-{{--                                        <span class="menu-item-label">Vartotojai</span>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
+                                {{--                                <li>--}}
+                                {{--                                    <a href="{{ route('dashboard.type.index') }}">--}}
+                                {{--                                        <span class="icon"><i class="fas fa-users"></i></span>--}}
+                                {{--                                        <span class="menu-item-label">Vartotojai</span>--}}
+                                {{--                                    </a>--}}
+                                {{--                                </li>--}}
                             </ul>
                             <!--                             <p class="menu-label">
                                                             Kita

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'aside.common.title' => 'Common',
+    'aside.common.title' => 'General',
     'aside.data.title' => 'Data',
 
     'link.log.out.title' => 'Sign out',
@@ -9,27 +9,29 @@ return [
     'menu.title' => 'Menu',
 
     'home.title' => 'Dashboard',
-    'type.title' => 'Product types',
+    'type.title' => 'Product Types',
     'product.title' => 'Products',
     'group.title' => 'Product groups',
 
     'create.title' => 'Creating',
     'edit.title' => 'Editing',
 
-    'type.create.title.placeholder' => 'Please, provide a title',
-
-    'button.create' => 'Create new',
+    'button.create' => 'Create New',
     'button.edit' => 'Edit',
     'button.delete' => 'Delete',
     'button.back' => 'Back',
 
-    'types.is.empty' => 'Product types list is empty',
-    'type.title.title' => 'Title',
-    'type.priority.title' => 'Priority',
+    'types.empty' => 'Product type list is empty',
+    'group.empty' => 'Product group list is empty',
 
     'data.id' => 'ID',
-    'data.title' => 'title',
+    'data.title' => 'Title',
+    'data.title.placeholder' => 'Enter a title',
     'data.priority' => 'Priority',
-    'data.created.at' => 'Created_at',
-    'data.updated.at' => 'Updated_at',
+    'data.created.at' => 'Created',
+    'data.updated.at' => 'Updated',
+
+    'store.success' => 'Record successfully uploaded to database',
+    'edit.success' => 'Entry changed successfully',
+    'delete.success' => 'Post successfully deleted',
 ];

@@ -22,8 +22,7 @@ Route::middleware('auth')->name('dashboard.')->namespace('Dashboard')->group(fun
     Route::resource('type', 'TypeController', [
         'except' => 'show'
     ]);
-});
-
-Route::get('admin', function () {
-    return view('admin.index');
+    Route::resource('group', 'GroupController', [
+        'except' => 'show'
+    ]);
 });

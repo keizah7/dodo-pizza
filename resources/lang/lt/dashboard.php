@@ -16,19 +16,17 @@ return [
     'create.title' => 'Kūrimas',
     'edit.title' => 'Redagavimas',
 
-    'type.create.title.placeholder' => 'Įveskite pavadinimą',
-
     'button.create' => 'Sukurti naują',
     'button.edit' => 'Redaguoti',
     'button.delete' => 'Ištrinti',
     'button.back' => 'Atgal',
 
-    'types.is.empty' => 'Produkto tipų sąrašas tuščias',
-    'type.title.title' => 'Pavadinimas',
-    'type.priority.title' => 'Prioritetas',
+    'type.empty' => 'Produkto tipų sąrašas tuščias',
+    'grou.empty' => 'Produkto grupių sąrašas tuščias',
 
     'data.id' => 'ID',
     'data.title' => 'Pavadinimas',
+    'data.title.placeholder' => 'Įveskite pavadinimą',
     'data.priority' => 'Prioritetas',
     'data.created.at' => 'Sukurtas',
     'data.updated.at' => 'Atnaujintas',
