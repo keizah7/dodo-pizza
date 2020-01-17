@@ -17,4 +17,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')->name('dashboard.')->namespace('Dashboard')->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('type', 'TypeController', [
+        'except' => 'show'
+    ]);
+});
+
+Route::get('admin', function () {
+    return view('admin.index');
+});

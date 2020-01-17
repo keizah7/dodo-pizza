@@ -15,11 +15,11 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->smallInteger('type');
             $table->string('name', 255);
             $table->string('phone', 255);
             $table->string('address', 255);
             $table->text('comment');
+            $table->boolean('delivery');
             $table->unsignedBigInteger('pickup_id')->nullable();
             $table->timestamps();
 
