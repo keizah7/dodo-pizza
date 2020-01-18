@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Dashboard;
 use App\Group;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateProductRequest;
+use App\Ingredient;
 use App\Product;
+use App\ProductIngredient;
 use App\Traits\UploadTrait;
 use App\Type;
-use \Illuminate\Support\Str;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -37,10 +39,10 @@ class ProductController extends Controller
     public function create()
     {
         return view(
-            'dashboard.product.create',
-            [
+            'dashboard.product.create', [
                 'types' => Type::orderBy('priority', 'desc')->get(),
                 'groups' => Group::orderBy('priority', 'desc')->get(),
+                'ingredients' => Ingredient::all(),
             ]
         );
     }
@@ -56,7 +58,8 @@ class ProductController extends Controller
         $data = $request->validated();
         $data['photo'] = $this->upload(request('photo'));
 
-        Product::create($data);
+        $product = Product::create($data);
+        $product->ingredient()->attach($data['ingredients']);
 
         return redirect()->back()->with('message', __('dashboard.store.success'));
     }
@@ -69,6 +72,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        $product->load('ingredient');
+
+        return view('dashboard.product.show', compact('product'));
     }
 
     /**
@@ -83,6 +89,8 @@ class ProductController extends Controller
             'types' => Type::orderBy('priority', 'desc')->get(),
             'groups' => Group::orderBy('priority', 'desc')->get(),
             'product' => $product,
+            'ingredients' => Ingredient::all(),
+             'currentIngredients' => $product->ingredient->pluck('id')->toArray(),
         ]);
     }
 
@@ -99,6 +107,7 @@ class ProductController extends Controller
         $data['photo'] = $this->upload(request('photo'), $product->photo);
 
         $product->update($data);
+        $product->ingredient()->sync($data['ingredients']);
 
         return redirect()->back()->with('message', __('dashboard.edit.success'));
     }
