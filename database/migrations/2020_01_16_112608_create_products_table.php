@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->decimal('price', 5, 2);
             $table->decimal('discount', 5, 2)->nullable();
-            $table->string('photo', 255);
+            $table->string('photo', 255)->nullable();
             $table->smallInteger('priority');
             $table->unsignedBigInteger('type_id');
             $table->unsignedBigInteger('group_id');
