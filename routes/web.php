@@ -28,4 +28,7 @@ Route::middleware('auth')->name('dashboard.')->namespace('Dashboard')->group(fun
     Route::resource('product', 'ProductController', [
         'except' => 'show'
     ]);
+    Route::resource('ingredient', 'IngredientController', [
+        'except' => 'show'
+    ]);
 });

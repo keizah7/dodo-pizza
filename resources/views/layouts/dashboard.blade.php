@@ -173,7 +173,7 @@
                             <ul class="menu-list">
                                 <li id="dropdown-sample-li" class="">
                                     <a id="dropdown-sample-a" class="has-dropdown-label">
-                                        <span class="icon"><i class="fas fa-file-alt"></i></span>
+                                        <span class="icon"><i class="fas fa-folder"></i></span>
                                         <span class="menu-item-label">@lang('dashboard.product.title')</span>
                                         <div class="dropdown-label">
                                             <span class="icon"><i class="fas fa-caret-down"></i></span>
@@ -198,12 +198,12 @@
                                     </ul>
                                 </li>
 
-                                {{--                                <li>--}}
-                                {{--                                    <a href="{{ route('dashboard.type.index') }}">--}}
-                                {{--                                        <span class="icon"><i class="fas fa-folder"></i></span>--}}
-                                {{--                                        <span class="menu-item-label">Kategorijos</span>--}}
-                                {{--                                    </a>--}}
-                                {{--                                </li>--}}
+                                <li id="dropdown-sample-li" class="">
+                                    <a href="{{ route('dashboard.ingredient.index') }}" id="dropdown-sample-a" class="has-dropdown-label">
+                                        <span class="icon"><i class="fas fa-file-alt"></i></span>
+                                        <span class="menu-item-label">@lang('dashboard.ingredient.title')</span>
+                                    </a>
+                                </li>
 
                                 {{--                                <li>--}}
                                 {{--                                    <a href="{{ route('dashboard.type.index') }}">--}}

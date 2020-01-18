@@ -12,6 +12,7 @@ return [
     'type.title' => 'Produktų tipai',
     'product.title' => 'Produktai',
     'group.title' => 'Produktų grupės',
+    'ingredient.title' => 'Ingridientai',
 
     'create.title' => 'Kūrimas',
     'edit.title' => 'Redagavimas',
@@ -45,6 +46,7 @@ return [
     'data.group_id.placeholder' => 'Pasirinkite grupę',
     'data.priority' => 'Prioritetas',
     'data.priority.placeholder' => 'x',
+    'data.removable' => 'Pašalinamas',
     'data.created.at' => 'Sukurtas',
     'data.updated.at' => 'Atnaujintas',
 
