@@ -47,7 +47,6 @@ return [
     'data.priority' => 'Prioritetas',
     'data.priority.placeholder' => 'x',
     'data.removable' => 'Pašalinamas',
-    'data.ingredient' => 'Ingridientai',
     'data.created.at' => 'Sukurtas',
     'data.updated.at' => 'Atnaujintas',
 

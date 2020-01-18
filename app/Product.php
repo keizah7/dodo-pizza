@@ -13,9 +13,4 @@ class Product extends Model
     {
         return Str::words($this->attributes['description'], 3);
     }
-
-    public function ingredient()
-    {
-        return $this->belongsToMany(Ingredient::class, 'product_ingredients')->withTimestamps();
-    }
 }

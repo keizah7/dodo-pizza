@@ -32,8 +32,6 @@ class CreateProductRequest extends FormRequest
             'type_id' => 'required|integer|exists:types,id',
             'group_id' => 'required|integer|exists:groups,id',
             'photo' => 'file|image|mimes:jpeg,bmp,png,jpg|max:2000',
-            'ingredients' => 'required|array|min:1',
-            'ingredients.*' => 'required|numeric|distinct|exists:ingredients,id',
         ];
     }
 }
