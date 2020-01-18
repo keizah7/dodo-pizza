@@ -24,7 +24,7 @@
                                         <br><h3 class="subtitle">Paskutinis prisijungimas <b>04:20</b> iš
                                             <b>127.0.0.1</b>, Vilnius</h3>
                                     </div>
-                                    <div class="mflevel-item">
+                                    <div class="level-item">
                                         <button class="button is-small is-hero-button">Ne jūs?</button>
                                     </div>
                                 </div>

@@ -23,13 +23,12 @@ trait UploadTrait
 
             return $path . $newFileName;
         }
-
         return $oldFile;
     }
 
     public function delete($file)
     {
-        if($file) {
+        if($file && $file != '/img/products/default.svg') {
             Storage::disk('public')->delete($file);
         }
     }

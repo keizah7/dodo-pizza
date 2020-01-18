@@ -67,8 +67,14 @@
 
                                     <td>
                                         <div class="buttons is-right">
-                                            <a href="{{ route('dashboard.product.edit', $product->id) }}"
-                                                class="button is-small is-link" product="button" title="@lang('dashboard.button.edit')">
+                                            <a href="{{ route('dashboard.product.show', $product) }}"
+                                                class="button is-small is-success" type="button" title="@lang('dashboard.button.edit')">
+                                                <span class="icon">
+                                                    <i class="fas fa-eye"></i>
+                                                </span>
+                                            </a>
+                                            <a href="{{ route('dashboard.product.edit', $product) }}"
+                                                class="button is-small is-link" type="button" title="@lang('dashboard.button.edit')">
                                                 <span class="icon">
                                                     <i class="fas fa-wrench"></i>
                                                 </span>

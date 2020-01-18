@@ -54,7 +54,7 @@
                                     <td>
                                         <div class="buttons is-right">
                                             <a href="{{ route('dashboard.ingredient.edit', $ingredient->id) }}"
-                                                class="button is-small is-link" ingredient="button" title="@lang('dashboard.button.edit')">
+                                                class="button is-small is-link" type="button" title="@lang('dashboard.button.edit')">
                                                 <span class="icon">
                                                     <i class="fas fa-wrench"></i>
                                                 </span>
@@ -62,7 +62,7 @@
                                             <form action="{{ route('dashboard.ingredient.destroy', $ingredient->id) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
-                                                <button class="button is-small is-danger" ingredient="submit" title="@lang('dashboard.button.delete')">
+                                                <button class="button is-small is-danger" type="submit" title="@lang('dashboard.button.delete')">
                                                     <span class="icon">
                                                         <i class="fas fa-trash"></i>
                                                     </span>
