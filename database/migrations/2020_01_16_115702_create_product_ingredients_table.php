@@ -19,8 +19,6 @@ class CreateProductIngredientsTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->timestamps();
 
-            $table->unique(['ingredient_id', 'product_id']);
-
             $table->foreign('ingredient_id')->references('id')->on('ingredients');
             $table->foreign('product_id')->references('id')->on('products');
         });

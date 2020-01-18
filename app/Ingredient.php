@@ -12,9 +12,4 @@ class Ingredient extends Model
     {
         return $this->attributes['removable'] ? 'true' : 'false';
     }
-
-    public function product()
-    {
-        return $this->belongsToMany(Product::class, 'product_ingredients');
-    }
 }
