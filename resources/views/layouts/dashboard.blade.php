@@ -181,6 +181,11 @@
                                     </a>
                                     <ul>
                                         <li>
+                                            <a href="{{ route('dashboard.product.index') }}">
+                                                <span>@lang('dashboard.product.title')</span>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="{{ route('dashboard.type.index') }}">
                                                 <span>@lang('dashboard.type.title')</span>
                                             </a>
