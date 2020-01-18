@@ -11,7 +11,7 @@
 
     <section class="section">
         <div class="container-fluid columns">
-            <form action="{{ route('dashboard.group.store') }}" method ="POST" class="column is-half>
+            <form action="{{ route('dashboard.group.store') }}" method ="POST" class="column is-half">
                 @csrf
 
                 <div class="field">

@@ -83,15 +83,31 @@
                         <div class="select">
                             <select name="group_id" required>
                                 <option value="">@lang('dashboard.data.group_id.placeholder')</option>
-                                @foreach($types as $type)
-                                    <option value="{{ $type->id }}"
-                                    @if(old('group_id') == $type->id){{ ' selected' }}@endif
-                                    >{{ $type->title }}</option>
+                                @foreach($groups as $group)
+                                    <option value="{{ $group->id }}"
+                                    @if(old('group_id') == $group->id){{ ' selected' }}@endif
+                                    >{{ $group->title }}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
                     @error('group_id')<p class="help is-danger">{{ $message }}</p>@enderror
+                </div>
+
+                <div class="field">
+                    <label class="label">@lang('dashboard.data.ingredient')</label>
+                    <div class="control">
+                        <div class="select is-multiple">
+                            <select name="ingredients[]" multiple size="8">
+                                @foreach($ingredients as $key => $ingredient)
+                                    <option value="{{ $ingredient->id }}"
+                                        {{ (collect(old('ingredients'))->contains($ingredient->id)) ? ' selected' : '' }}
+                                    >{{ $ingredient->title }} [{{ $ingredient->removable_text }}]</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    @error('ingredients', 'ingredients.*')<p class="help is-danger">{{ $message }}</p>@enderror
                 </div>
 
                 <div class="field">
