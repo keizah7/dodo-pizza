@@ -29,4 +29,7 @@ Route::middleware('auth')->name('dashboard.')->namespace('Dashboard')->group(fun
     Route::resource('ingredient', 'IngredientController', [
         'except' => 'show'
     ]);
+    Route::resource('pickup', 'PickupController', [
+        'except' => 'show'
+    ]);
 });
