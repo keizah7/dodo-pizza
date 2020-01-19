@@ -23,6 +23,7 @@ trait UploadTrait
 
             return $path . $newFileName;
         }
+
         return $oldFile;
     }
 
