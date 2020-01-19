@@ -13,7 +13,7 @@ class CreatePickupRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class CreatePickupRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|min:3',
+            'address' => 'required|min:3',
+            'description' => 'required:min:3',
         ];
     }
 }

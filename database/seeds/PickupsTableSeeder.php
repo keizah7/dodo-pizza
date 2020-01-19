@@ -11,6 +11,6 @@ class PickupsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Type::class, rand(1, 5))->create();
+        factory(\App\Pickup::class, rand(1, 5))->create();
     }
 }

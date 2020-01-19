@@ -11,6 +11,6 @@ class ProductIngredientsTable extends Seeder
      */
     public function run()
     {
-        factory(\App\ProductIngredient::class, rand(10, 99))->create();
+        factory(\App\ProductIngredient::class, rand(1, 15))->create();
     }
 }

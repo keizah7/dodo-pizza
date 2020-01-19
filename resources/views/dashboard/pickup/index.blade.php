@@ -36,6 +36,7 @@
                                     <th>@lang('dashboard.data.id')</th>
                                     <th>@lang('dashboard.data.title')</th>
                                     <th>@lang('dashboard.data.address')</th>
+                                    <th>@lang('dashboard.data.description')</th>
                                     <th>@lang('dashboard.data.created.at')</th>
                                     <th>@lang('dashboard.data.updated.at')</th>
                                     <th></th>
@@ -48,6 +49,7 @@
                                     <td>{{ $pickup->id }}</td>
                                     <td>{{ $pickup->title }}</td>
                                     <td>{{ $pickup->address }}</td>
+                                    <td>{{ $pickup->description }}</td>
                                     <td>{{ $pickup->created_at }}</td>
                                     <td>{{ $pickup->updated_at }}</td>
 
