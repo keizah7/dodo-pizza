@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Pickup::class, function (Faker $faker) {
     return [
-        //
+        'title' => $faker->unique()->word,
+        'address' => $faker->address,
     ];
 });

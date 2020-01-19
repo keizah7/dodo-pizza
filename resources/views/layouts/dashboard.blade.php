@@ -198,11 +198,19 @@
                                     </ul>
                                 </li>
 
-                                <li id="dropdown-sample-li" class="">
+                                <li>
                                     <a href="{{ route('dashboard.ingredient.index') }}" id="dropdown-sample-a"
                                         class="has-dropdown-label">
                                         <span class="icon"><i class="fas fa-file-alt"></i></span>
                                         <span class="menu-item-label">@lang('dashboard.ingredient.title')</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('dashboard.pickup.index') }}" id="dropdown-sample-a"
+                                        class="has-dropdown-label">
+                                        <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                                        <span class="menu-item-label">@lang('dashboard.pickup.title')</span>
                                     </a>
                                 </li>
 
