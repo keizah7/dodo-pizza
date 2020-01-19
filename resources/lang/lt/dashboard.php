@@ -13,6 +13,7 @@ return [
     'product.title' => 'Produktai',
     'group.title' => 'Produktų grupės',
     'ingredient.title' => 'Ingridientai',
+    'pickup.title' => 'Picerijos',
 
     'create.title' => 'Kūrimas',
     'edit.title' => 'Redagavimas',
@@ -31,6 +32,11 @@ return [
     'data.title' => 'Pavadinimas',
     'data.title.placeholder' => 'Įveskite pavadinimą',
     'data.description' => 'Aprašymas',
+    'data.description.value' => '
+Pr - Kt: XX:XX — XX:XX
+Pn - Š: XX:XX — XX:XX
+S : XX:XX — XX:XX
+    ',
     'data.description.placeholder' => 'Įveskite aprašymą',
     'data.size_title' => 'Dydis',
     'data.size_title.placeholder' => 'Įveskite picos dydį',
@@ -50,6 +56,8 @@ return [
     'data.ingredient' => 'Ingridientai',
     'data.created.at' => 'Sukurtas',
     'data.updated.at' => 'Atnaujintas',
+    'data.address' => 'Adresas',
+    'data.address.placeholder' => 'Įveskite adresą',
 
     'store.success' => 'Įrašas sėkmingai patalpintas duomenų bazėje',
     'edit.success' => 'Įrašas sėkmingai pakeistas',

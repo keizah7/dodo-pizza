@@ -81,16 +81,6 @@
                                 <tr>
                                     <th>@lang('dashboard.data.title')</th>
                                     <th>@lang('dashboard.data.removable')</th>
-{{--                                    <th>@lang('dashboard.data.description')</th>--}}
-{{--                                    <th>@lang('dashboard.data.price')</th>--}}
-{{--                                    <th>@lang('dashboard.data.discount')</th>--}}
-{{--                                    <th>@lang('dashboard.data.photo')</th>--}}
-{{--                                    <th>@lang('dashboard.data.priority')</th>--}}
-{{--                                    <th>@lang('dashboard.data.type_id')</th>--}}
-{{--                                    <th>@lang('dashboard.data.group_id')</th>--}}
-{{--                                    <th>@lang('dashboard.data.created.at')</th>--}}
-{{--                                    <th>@lang('dashboard.data.updated.at')</th>--}}
-{{--                                    <th></th>--}}
                                 </tr>
                             @endempty
                             </thead>
@@ -99,44 +89,6 @@
                                 <tr>
                                     <td>{{ $ingredient->title }}</td>
                                     <td>{{ $ingredient->removable_text }}</td>
-{{--                                    <td>{{ $product->size_title }}</td>--}}
-{{--                                    <td>{{ $product->short_description }}</td>--}}
-{{--                                    <td>{{ $product->price }}</td>--}}
-{{--                                    <td>{{ $product->discount }}</td>--}}
-{{--                                    <td>--}}
-{{--                                        @isset($product->photo)<img src="{{ $product->photo }}" alt="ProductPhoto" class="image is-16x16">@endisset--}}
-{{--                                    </td>--}}
-{{--                                    <td>{{ $product->priority }}</td>--}}
-{{--                                    <td>{{ $product->type_id }}</td>--}}
-{{--                                    <td>{{ $product->group_id }}</td>--}}
-{{--                                    <td>{{ $product->created_at }}</td>--}}
-{{--                                    <td>{{ $product->updated_at }}</td>--}}
-
-{{--                                    <td>--}}
-{{--                                        <div class="buttons is-right">--}}
-{{--                                            <a href="{{ route('dashboard.product.show', $product) }}"--}}
-{{--                                                class="button is-small is-success" type="button" title="@lang('dashboard.button.edit')">--}}
-{{--                                                <span class="icon">--}}
-{{--                                                    <i class="fas fa-eye"></i>--}}
-{{--                                                </span>--}}
-{{--                                            </a>--}}
-{{--                                            <a href="{{ route('dashboard.product.edit', $product) }}"--}}
-{{--                                                class="button is-small is-link" type="button" title="@lang('dashboard.button.edit')">--}}
-{{--                                                <span class="icon">--}}
-{{--                                                    <i class="fas fa-wrench"></i>--}}
-{{--                                                </span>--}}
-{{--                                            </a>--}}
-{{--                                            <form action="{{ route('dashboard.product.destroy', $product->id) }}" method="POST">--}}
-{{--                                                @csrf--}}
-{{--                                                @method('delete')--}}
-{{--                                                <button class="button is-small is-danger" product="submit" title="@lang('dashboard.button.delete')">--}}
-{{--                                                    <span class="icon">--}}
-{{--                                                        <i class="fas fa-trash"></i>--}}
-{{--                                                    </span>--}}
-{{--                                                </button>--}}
-{{--                                            </form>--}}
-{{--                                        </div>--}}
-{{--                                    </td>--}}
                                 </tr>
                             @empty
                                 <tr>

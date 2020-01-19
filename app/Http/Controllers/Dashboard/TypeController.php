@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Type;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateTypeRequest;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
 use Illuminate\View\View;
+use Illuminate\Http\Response;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Contracts\View\Factory;
+use App\Http\Requests\CreateTypeRequest;
 
 class TypeController extends Controller
 {
@@ -20,8 +20,7 @@ class TypeController extends Controller
     public function index()
     {
         return view(
-            'dashboard.type.index',
-            [
+            'dashboard.type.index', [
                 'types' => Type::paginate(10),
             ]
         );

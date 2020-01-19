@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ProductIngredientsTable extends Seeder
+class PickupsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class ProductIngredientsTable extends Seeder
      */
     public function run()
     {
-        factory(\App\ProductIngredient::class, rand(1, 15))->create();
+        factory(\App\Pickup::class, rand(1, 5))->create();
     }
 }
