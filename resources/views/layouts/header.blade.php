@@ -24,7 +24,7 @@
                 <p class="muted">Skambinkite</p>
                 <a href="tel:863511555">8 635 11 555</a>
             </div>
-            <div class="header__log-in"><a href="" class="btn btn--white btn--square">Prisijungti</a></div>
+            <div class="header__log-in"><a href="{{ route('dashboard.home') }}" class="btn btn--white btn--square">Prisijungti</a></div>
         </div>
     </div>
 </header>

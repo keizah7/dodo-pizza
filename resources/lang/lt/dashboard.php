@@ -27,6 +27,8 @@ return [
     'type.empty' => 'Produkto tipų sąrašas tuščias',
     'group.empty' => 'Produkto grupių sąrašas tuščias',
     'product.empty' => 'Produktų sąrašas tuščias',
+    'ingredient.empty' => 'Ingridientų sąrašas tuščias',
+    'pickup.empty' => 'Picerijų sąrašas tuščias',
 
     'data.id' => 'ID',
     'data.title' => 'Pavadinimas',

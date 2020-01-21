@@ -13,6 +13,8 @@
 
 Route::get('/', 'PageController@index');
 
+Route::get('show/{group}', 'PageController@show')->name('group.show');
+
 Auth::routes();
 
 Route::middleware('auth')->name('dashboard.')->namespace('Dashboard')->group(function () {
