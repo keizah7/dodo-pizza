@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Group extends Model
 {
     protected $fillable = ['title', 'priority'];
+
+    public function product()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

@@ -1,26 +1,30 @@
 @extends('layouts.main')
 
 @section('content')
-    @include('layouts.carousel')
-
     <section class="pizza">
         <div class="pizza__content">
-            <div class="pizza__item">
-                <a href="" class="pizza__img"><img
-                        src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/lt-LT/99f8eca7-754a-4810-99b2-b64e9348a022.jpg"
-                        alt="Pica"></a>
-                <div class="pizza__info">
-                    <h3>Pizza</h3>
-                    <p>Description</p>
+            @foreach($groups as $group)
+                <div class="pizza__item">
+                    <a href="{{ route('group.show', $group) }}" class="pizza__img"><img
+                            src="{{ $group->product->first()->photo }}"
+                            alt="Pica"></a>
+                    <div class="pizza__info">
+                        <h3>{{ $group->title }}</h3>
+                        <p>
+                            @foreach($group->product->first()->ingredient as $ingredient)
+                                {{ $ingredient->title }}{{ $loop->last ? '' : ', ' }}
+                            @endforeach
+                        </p>
+                    </div>
+                    <div class="pizza__button">
+                        <button class="btn">nuo {{ $group->product->first()->price }} €</button>
+                    </div>
+                    <div class="pizza__button from-lg">
+                        <span>nuo {{ $group->product->first()->price }} €</span>
+                        <button class="btn">Choose</button>
+                    </div>
                 </div>
-                <div class="pizza__button">
-                    <button class="btn">price</button>
-                </div>
-                <div class="pizza__button from-lg">
-                    <span>price</span>
-                    <button class="btn">Choose</button>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
 @endsection
