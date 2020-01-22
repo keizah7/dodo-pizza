@@ -54,7 +54,7 @@
             <a href="#">Akcijos</a>
             <a href="#">Kontaktai</a>
             <a href="http://dodopizza.lt">Tiesioginė transliacija</a>
-            <a href="#">Prisijungti</a>
+            <a href="{{ route('dashboard.home') }}">Prisijungti</a>
             <a href="#">Krepšelis</a>
         </div>
         <div class="mobile-nav__contacts">

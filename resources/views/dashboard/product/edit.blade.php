@@ -19,7 +19,7 @@
                     <label class="label">@lang('dashboard.data.size_title')</label>
                     <div class="control">
                         <input value="{{ old('size_title', $product->size_title) }}" name="size_title" class="input" type="text"
-                            placeholder="@lang('dashboard.data.size_title.placeholder')" required>
+                            placeholder="@lang('dashboard.data.size_title.placeholder')">
                     </div>
                     @error('size_title')<p class="help is-danger">{{ $message }}</p>@enderror
                 </div>
@@ -28,8 +28,7 @@
                     <label class="label">@lang('dashboard.data.description')</label>
                     <div class="control">
                         <textarea name="description" class="textarea"
-                            placeholder="@lang('dashboard.data.description.placeholder')"
-                            required>{{ old('description', $product->description) }}</textarea>
+                            placeholder="@lang('dashboard.data.description.placeholder')">{{ old('description', $product->description) }}</textarea>
                     </div>
                     @error('description')<p class="help is-danger">{{ $message }}</p>@enderror
                 </div>

@@ -58,7 +58,9 @@ class ProductController extends Controller
         $data['photo'] = $this->upload(request('photo'));
 
         $product = Product::create($data);
-        $product->ingredient()->attach($data['ingredients']);
+        if(isset($data['ingredients'])) {
+            $product->ingredient()->attach($data['ingredients']);
+        }
 
         return redirect()->back()->with('message', __('dashboard.store.success'));
     }
