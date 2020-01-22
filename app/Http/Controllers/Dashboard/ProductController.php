@@ -40,8 +40,7 @@ class ProductController extends Controller
     {
         return view(
             'dashboard.product.create', [
-                'types' => Type::orderBy('priority', 'desc')->get(),
-                'groups' => Group::orderBy('priority', 'desc')->get(),
+                'groups' => Group::orderBy('priority')->get(),
                 'ingredients' => Ingredient::all(),
             ]
         );
@@ -68,7 +67,7 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param \App\Product $product
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show(Product $product)
     {
@@ -86,11 +85,10 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         return view('dashboard.product.edit', [
-            'types' => Type::orderBy('priority', 'desc')->get(),
-            'groups' => Group::orderBy('priority', 'desc')->get(),
+            'groups' => Group::orderBy('priority')->get(),
             'product' => $product,
             'ingredients' => Ingredient::all(),
-             'currentIngredients' => $product->ingredient->pluck('id')->toArray(),
+            'currentIngredients' => $product->ingredient->pluck('id')->toArray(),
         ]);
     }
 

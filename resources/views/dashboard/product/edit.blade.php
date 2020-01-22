@@ -62,23 +62,6 @@
                 </div>
 
                 <div class="field">
-                    <label class="label">@lang('dashboard.data.type_id')</label>
-                    <div class="control">
-                        <div class="select">
-                            <select name="type_id" required>
-                                <option value="">@lang('dashboard.data.type_id.placeholder')</option>
-                                @foreach($types as $type)
-                                    <option value="{{ $type->id }}"
-                                    @if(old('type_id', $product->type_id) == $type->id){{ ' selected' }}@endif
-                                    >{{ $type->title }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    @error('type_id')<p class="help is-danger">{{ $message }}</p>@enderror
-                </div>
-
-                <div class="field">
                     <label class="label">@lang('dashboard.data.group_id')</label>
                     <div class="control">
                         <div class="select">

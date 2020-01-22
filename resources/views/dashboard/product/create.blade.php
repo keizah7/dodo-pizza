@@ -55,26 +55,9 @@
                     <label class="label">@lang('dashboard.data.priority')</label>
                     <div class="control">
                         <input value="{{ old('priority') }}" name="priority" class="input" type="number"
-                            placeholder="@lang('dashboard.data.priority.placeholder')" required>
+                            placeholder="@lang('dashboard.data.priority.placeholder')" min="0" required>
                     </div>
                     @error('priority')<p class="help is-danger">{{ $message }}</p>@enderror
-                </div>
-
-                <div class="field">
-                    <label class="label">@lang('dashboard.data.type_id')</label>
-                    <div class="control">
-                        <div class="select">
-                            <select name="type_id" required>
-                                <option value="">@lang('dashboard.data.type_id.placeholder')</option>
-                                @foreach($types as $type)
-                                    <option value="{{ $type->id }}"
-                                    @if(old('type_id') == $type->id){{ ' selected' }}@endif
-                                    >{{ $type->title }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    @error('type_id')<p class="help is-danger">{{ $message }}</p>@enderror
                 </div>
 
                 <div class="field">
@@ -99,15 +82,17 @@
                     <div class="control">
                         <div class="select is-multiple">
                             <select name="ingredients[]" multiple size="8">
-                                @foreach($ingredients as $key => $ingredient)
+                                @forelse($ingredients as $key => $ingredient)
                                     <option value="{{ $ingredient->id }}"
                                         {{ (collect(old('ingredients'))->contains($ingredient->id)) ? ' selected' : '' }}
                                     >{{ $ingredient->title }} [{{ $ingredient->removable_text }}]</option>
-                                @endforeach
+                                @empty
+                                    <option value="" disabled selected>Sukurkite ingridientus</option>
+                                @endforelse
                             </select>
                         </div>
                     </div>
-                    @error('ingredients', 'ingredients.*')<p class="help is-danger">{{ $message }}</p>@enderror
+                    @error('ingredients')<p class="help is-danger">{{ $message }}</p>@enderror
                 </div>
 
                 <div class="field">

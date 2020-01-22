@@ -36,6 +36,7 @@
                                     <th>@lang('dashboard.data.id')</th>
                                     <th>@lang('dashboard.data.title')</th>
                                     <th>@lang('dashboard.data.priority')</th>
+                                    <th>@lang('dashboard.data.type_id')</th>
                                     <th>@lang('dashboard.data.created.at')</th>
                                     <th>@lang('dashboard.data.updated.at')</th>
                                     <th></th>
@@ -48,6 +49,7 @@
                                     <td>{{ $group->id }}</td>
                                     <td>{{ $group->title }}</td>
                                     <td>{{ $group->priority }}</td>
+                                    <td>{{ $group->type_id }}</td>
                                     <td>{{ $group->created_at }}</td>
                                     <td>{{ $group->updated_at }}</td>
 
