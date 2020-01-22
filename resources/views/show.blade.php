@@ -44,29 +44,32 @@
             </svg>
         </div>
         <img class="add-to-cart__img"
-            src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/lt-LT/99f8eca7-754a-4810-99b2-b64e9348a022.jpg"
+            src="{{ $group->product->photo }}"
             alt="Pica">
         <div class="add-to-cart__info">
             <h3>{{ $group->title }}</h3>
-            <p class="muted">25cm. Tradicinė tešla, 640g</p>
+            <p class="muted">{{ $group->product->description }}</p>
             <p>
-                @foreach($group->product->first()->ingredient as $ingredient)
+                @isset($group->product->ingredient)
+                @foreach($group->product->ingredient as $ingredient)
                     {{ $ingredient->title }}{{ $loop->last ? '' : ', ' }}
                 @endforeach
+                    @endisset
             </p>
         </div>
+
         <div class="add-to-cart__box">
-            @foreach($group->product as $product)
+            @foreach($group->products as $product)
 
                 <span
                     {{ $loop->first ? ' class=is-active' : '' }}
-                    style="width:{{ 100 / $group->product->count()  }}%"><a href="?id={{$product->id}}">{{ $product->size_title }}</a></span>
+                    style="width:{{ 100 / $group->products->count()  }}%"><a href="?id={{$product->id}}">{{ $product->size_title }}</a></span>
 {{--                <span style="width:33.333%" class="is-active">Maža</span>--}}
 {{--                <span style="width:33.333%">Vidutinė</span>--}}
 {{--                <span style="width:33.333%">Didelė</span>--}}
             @endforeach
         </div>
-        <div class="add-to-cart__add"><a href="" class="btn btn--block">Įdėti į krepšelį už 8,50</a></div>
+        <div class="add-to-cart__add"><a href="" class="btn btn--block">Įdėti į krepšelį už {{ $group->product->price }}</a></div>
     </div>
     </div>
     <div class="overlay"></div>

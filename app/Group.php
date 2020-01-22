@@ -8,8 +8,13 @@ class Group extends Model
 {
     protected $fillable = ['title', 'priority', 'type_id'];
 
-    public function product()
+    public function products()
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function product()
+    {
+        return $this->hasOne(Product::class);
     }
 }

@@ -76,6 +76,7 @@ body * {
 .footer__content,
 .secret-buyer__content,
 .pizza__content,
+.pizza__title,
 .mobile-nav__content,
 .nav__content,
 .header__content {
@@ -652,6 +653,11 @@ p.muted {
   }
 }
 
+.pizza__title {
+  font-size: 1.5em;
+  margin-bottom: 1.5em;
+}
+
 @media (min-width: 768px) and (max-width: 991px) {
   .pizza__content {
     display: grid;
@@ -715,6 +721,10 @@ p.muted {
   padding: 1em;
   padding-left: 0;
   opacity: 0.5;
+}
+
+.pizza__info h3 {
+  max-width: 90%;
 }
 
 @media (min-width: 400px) and (max-width: 991px) {

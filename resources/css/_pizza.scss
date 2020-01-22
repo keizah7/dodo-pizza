@@ -5,6 +5,14 @@
 		margin-top: 3em;
 	}
 
+    @include has(title)
+    {
+        @extend .container;
+        font-size: 1.5em;
+        margin-bottom: 1.5em;
+    }
+
+
 	@include has(content) {
 		@extend .container;
 
@@ -65,6 +73,10 @@
 			opacity: .5;
 		}
 
+        h3 {
+            max-width: 90%;
+        }
+
 		@include from-x-to-lg {
 			grid-area: info;
 			text-align: left;
@@ -97,7 +109,7 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			
+
 			&:not(.from-lg) {
 				display: none;
 			}
