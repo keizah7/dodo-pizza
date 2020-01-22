@@ -40,7 +40,6 @@
                                     <th>@lang('dashboard.data.discount')</th>
                                     <th>@lang('dashboard.data.photo')</th>
                                     <th>@lang('dashboard.data.priority')</th>
-                                    <th>@lang('dashboard.data.type_id')</th>
                                     <th>@lang('dashboard.data.group_id')</th>
                                     <th>@lang('dashboard.data.created.at')</th>
                                     <th>@lang('dashboard.data.updated.at')</th>
@@ -60,7 +59,6 @@
                                         @isset($product->photo)<img src="{{ $product->photo }}" alt="ProductPhoto" class="image is-16x16">@endisset
                                     </td>
                                     <td>{{ $product->priority }}</td>
-                                    <td>{{ $product->type_id }}</td>
                                     <td>{{ $product->group_id }}</td>
                                     <td>{{ $product->created_at }}</td>
                                     <td>{{ $product->updated_at }}</td>

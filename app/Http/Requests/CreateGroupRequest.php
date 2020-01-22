@@ -26,6 +26,7 @@ class CreateGroupRequest extends FormRequest
         return [
             'title' => 'required|min:3', // |unique:groups
             'priority' => 'required|integer',
+            'type_id' => 'required|integer|exists:types,id',
         ];
     }
 }

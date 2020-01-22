@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
-    protected $fillable = ['title', 'priority'];
+    protected $fillable = ['title', 'priority', 'type_id'];
 
     public function product()
     {

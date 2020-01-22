@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Group;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateGroupRequest;
+use App\Type;
 
 class GroupController extends Controller
 {
@@ -30,7 +31,9 @@ class GroupController extends Controller
      */
     public function create()
     {
-        return view('dashboard.group.create');
+        return view('dashboard.group.create', [
+            'types' => Type::orderBy('priority')->get(),
+        ]);
     }
 
     /**
@@ -65,7 +68,10 @@ class GroupController extends Controller
      */
     public function edit(Group $group)
     {
-        return view('dashboard.group.edit', compact('group'));
+        return view('dashboard.group.edit', [
+            'types' => Type::orderBy('priority')->get(),
+            'group' => $group,
+        ]);
     }
 
     /**

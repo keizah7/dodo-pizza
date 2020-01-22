@@ -29,7 +29,6 @@ class CreateProductRequest extends FormRequest
             'price' => 'required|numeric|between:0,999.99',
             'discount' => 'nullable|numeric|between:0,999.99',
             'priority' => 'required|min:0|integer',
-            'type_id' => 'required|integer|exists:types,id',
             'group_id' => 'required|integer|exists:groups,id',
             'photo' => 'file|image|mimes:jpeg,bmp,png,jpg|max:2000',
             'ingredients' => 'required|array|min:1',

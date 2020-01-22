@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 class Product extends Model
 {
-    protected $fillable = ['size_title', 'description', 'price', 'discount', 'priority', 'type_id', 'group_id', 'photo'];
+    protected $fillable = ['size_title', 'description', 'price', 'discount', 'priority', 'group_id', 'photo'];
 
     public function getShortDescriptionAttribute()
     {
