@@ -21,11 +21,11 @@
     </div>
     <div class="add-to-cart__content">
         <div class="btn btn--white add-to-cart__back">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a href="{{ route('index') }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M19.0005 10.9988H7.83047L12.7105 6.11875C13.1005 5.72875 13.1005 5.08875 12.7105 4.69875C12.3205 4.30875 11.6905 4.30875 11.3005 4.69875L4.71047 11.2888C4.32047 11.6788 4.32047 12.3087 4.71047 12.6987L11.3005 19.2888C11.6905 19.6788 12.3205 19.6788 12.7105 19.2888C13.1005 18.8988 13.1005 18.2687 12.7105 17.8787L7.83047 12.9987H19.0005C19.5505 12.9987 20.0005 12.5487 20.0005 11.9988C20.0005 11.4488 19.5505 10.9988 19.0005 10.9988Z"
                     fill="black"></path>
-            </svg>
+            </svg></a>
         </div>
         <div class="btn btn--white add-to-cart__cart">
             <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,19 +57,19 @@
                     @endisset
             </p>
         </div>
-
         <div class="add-to-cart__box">
             @foreach($group->products as $product)
 
                 <span
-                    {{ $loop->first ? ' class=is-active' : '' }}
+                    {{ $id == $product->id ? ' class=is-active' : '' }}
                     style="width:{{ 100 / $group->products->count()  }}%"><a href="?id={{$product->id}}">{{ $product->size_title }}</a></span>
 {{--                <span style="width:33.333%" class="is-active">Maža</span>--}}
 {{--                <span style="width:33.333%">Vidutinė</span>--}}
 {{--                <span style="width:33.333%">Didelė</span>--}}
             @endforeach
         </div>
-        <div class="add-to-cart__add"><a href="" class="btn btn--block">Įdėti į krepšelį už {{ $group->product->price }}</a></div>
+
+        <div class="add-to-cart__add"><a href="{{ route('cart.update', $group->product->id) }}" class="btn btn--block">Įdėti į krepšelį už {{ $group->product->price }}</a></div>
     </div>
     </div>
     <div class="overlay"></div>

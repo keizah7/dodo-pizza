@@ -7,6 +7,8 @@ use App\Product;
 use App\Type;
 use Illuminate\Http\Request;
 
+use function foo\func;
+
 class PageController extends Controller
 {
     public function index()
@@ -24,18 +26,22 @@ class PageController extends Controller
 
     public function show(Group $group)
     {
-        $group
-//            ->load(
-//            [
-//                'product' => function ($query) use ($group) {
-//                    $query->where('group_id', $group->id)->first();
-//                }
-//            ]
-//        )
-            ->load(['product' => function($q){
-            $q->orderBy('priority');
-    }]);
+        $id = \request('id');
 
-        return view('show', compact('group'));
+        if($id) {
+            $group->load([
+                'product' => function($query) use ($id) {
+                    $query->find($id);
+                }
+            ]);
+        } else {
+            $group
+                ->load(['product' => function($q){
+                    $q->orderBy('priority', 'desc')->first();
+                }]);
+            $id = $group->product->id;
+        }
+
+        return view('show', compact('group', 'id'));
     }
 }

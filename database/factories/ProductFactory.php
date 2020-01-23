@@ -12,7 +12,6 @@ $factory->define(Product::class, function (Faker $faker) {
         'price' => $faker->randomFloat(4, 0, 99),
         'discount' => 0,
         'priority' => $faker->randomDigit,
-        'type_id' => \App\Type::pluck('id')->random(),
         'group_id' => \App\Group::pluck('id')->random(),
         'photo' => '/img/products/default.svg',
     ];

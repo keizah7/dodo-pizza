@@ -18,4 +18,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Ingredient::class, 'product_ingredients')->withTimestamps();
     }
+
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
+    }
 }
