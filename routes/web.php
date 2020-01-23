@@ -11,11 +11,15 @@
 |
 */
 
-Route::get('/', 'PageController@index');
+Route::get('/', 'PageController@index')->name('index');
 
 Route::get('show/{group}', 'PageController@show')->name('group.show');
 
 Auth::routes();
+
+Route::get('/cart', function () {
+    return view('cart');
+})->name('cart');
 
 Route::middleware('auth')->name('dashboard.')->namespace('Dashboard')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
