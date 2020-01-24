@@ -15,7 +15,9 @@ class PageController extends Controller
     {
         $types = Type::orderBy('priority')->with([
             'groups' => function ($query) {
-                $query->orderBy('priority')->with(['products', 'products.ingredient'])->has('products');
+                $query->orderBy('priority')->with(['products' => function ($q) {
+                    $q->orderBy('priority')->get();
+                }, 'products.ingredient'])->has('products');
             }
         ])->has('groups')->get();
 
@@ -37,7 +39,7 @@ class PageController extends Controller
         } else {
             $group
                 ->load(['product' => function($q){
-                    $q->orderBy('priority', 'desc')->first();
+                    $q->orderBy('priority')->first();
                 }]);
             $id = $group->product->id;
         }

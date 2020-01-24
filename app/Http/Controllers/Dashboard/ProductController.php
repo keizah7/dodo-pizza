@@ -107,7 +107,9 @@ class ProductController extends Controller
         $data['photo'] = $this->upload(request('photo'), $product->photo);
 
         $product->update($data);
-        $product->ingredient()->sync($data['ingredients']);
+        if(isset($data['ingredients'])) {
+            $product->ingredient()->sync($data['ingredients']);
+        }
 
         return redirect()->back()->with('message', __('dashboard.edit.success'));
     }

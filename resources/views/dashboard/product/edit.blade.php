@@ -54,7 +54,7 @@
                 <div class="field">
                     <label class="label">@lang('dashboard.data.priority')</label>
                     <div class="control">
-                        <input value="{{ old('priority', $product->priority) }}" name="priority" class="input" type="number"
+                        <input value="{{ old('priority', $product->priority) }}" name="priority" class="input" type="number" min="0"
                             placeholder="@lang('dashboard.data.priority.placeholder')" required>
                     </div>
                     @error('priority')<p class="help is-danger">{{ $message }}</p>@enderror
