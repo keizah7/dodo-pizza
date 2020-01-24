@@ -11,7 +11,7 @@
 
     <section class="section">
         <div class="container-fluid columns">
-            <form action="{{ route('dashboard.type.update', $type) }}" method ="POST" class="column is-half>
+            <form action="{{ route('dashboard.type.update', $type) }}" method ="POST" class="column is-half">
                 @method('put')
                 @csrf
 
