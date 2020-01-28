@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-    use App\Product;
+use App\Pickup;
+use App\Product;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -14,9 +15,24 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('cart', [
-            'products' => session('cart') ?? []
-        ]);
+        return view(
+            'cart.index',
+            [
+                'products' => session('cart') ?? []
+            ]
+        );
+    }
+
+    public function shipping()
+    {
+        return view('cart.shipping');
+    }
+
+    public function takeout()
+    {
+        $pickups = Pickup::all();
+
+        return view('cart.takeout', compact('pickups'));
     }
 
     /**
@@ -32,7 +48,7 @@ class CartController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -43,7 +59,7 @@ class CartController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -54,7 +70,7 @@ class CartController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)

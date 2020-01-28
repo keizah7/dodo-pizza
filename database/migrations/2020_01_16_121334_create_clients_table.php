@@ -17,9 +17,9 @@ class CreateClientsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 255);
             $table->string('phone', 255);
-            $table->string('address', 255);
+            $table->string('address', 255)->nullable();
             $table->text('comment');
-            $table->boolean('delivery');
+            $table->boolean('delivery')->default(false);
             $table->unsignedBigInteger('pickup_id')->nullable();
             $table->timestamps();
 
