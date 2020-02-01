@@ -21,6 +21,10 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1em;
+
+        img {
+            max-width: 100px;
+        }
     }
 
     @include has(actions) {
@@ -56,6 +60,7 @@
         bottom: 0;
         border-top: 1px solid #e6e6e6;
         box-shadow: 0 -8px 54px rgba(0,0,0,.08);
+        z-index: 2;
     }
 
     @include has(price) {

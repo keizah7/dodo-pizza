@@ -15,10 +15,15 @@ class CartController extends Controller
      */
     public function index()
     {
+        $products = session( 'cart', collect());
+        $idCounts = $products->countBy('id')->toArray();
+
+        $products = $products->unique('id')->each(fn($item) => $item->count = $idCounts[$item->id]);
+
         return view(
             'cart.index',
             [
-                'products' => session('cart') ?? []
+                'products' => $products
             ]
         );
     }
@@ -97,9 +102,12 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy(Product $product)
     {
-        \request()->session()->flush();
+        $cartContent = session( 'cart', collect());
+        $cartContent = $cartContent->where('id', '!=', $product->id);
+
+        session(['cart' => $cartContent]);
 
         return redirect()->back();
     }

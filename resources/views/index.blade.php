@@ -19,10 +19,10 @@
                             </p>
                         </div>
                         <div class="pizza__button">
-                            <button class="btn" data-group="{{ $group->id }}">nuo {{ $group->product->price }}</button>
+                            <button class="btn" data-group="{{ $group->id }}">nuo {{ $group->product->price }} {{ config('app.currency') }}</button>
                         </div>
                         <div class="pizza__button from-lg">
-                            <span>nuo {{ $group->product->price }}</span>
+                            <span>nuo {{ $group->product->price }} {{ config('app.currency') }}</span>
                             <button class="btn" data-group="{{ $group->id }}">Pasirinkti</button>
                         </div>
                     </div>

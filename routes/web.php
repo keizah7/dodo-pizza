@@ -11,18 +11,12 @@
 |
 */
 
-use Illuminate\Http\Request;
-
 Route::get('/', 'PageController@index')->name('index');
 
-Route::get('show/{group}', 'PageController@show')->name('group.show');
-
-Route::get('cart/cancel', 'CartController@destroy')->name('cart.destroy');
-Route::get('cart/shipping', 'CartController@shipping')->name('cart.shipping');
 Route::get('cart', 'CartController@index')->name('cart');
+Route::get('cart/shipping', 'CartController@shipping')->name('cart.shipping');
 Route::get('cart/takeout', 'CartController@takeout')->name('cart.takeout');
-//Route::get('cart/{product}', 'CartController@update')->name('cart.update');
-Route::delete('cart/{product}', 'CartController@delete')->name('cart.delete');
+Route::delete('cart/{product}', 'CartController@destroy')->name('cart.destroy');
 
 Auth::routes();
 
@@ -43,10 +37,13 @@ Route::middleware('auth')->name('dashboard.')->namespace('Dashboard')->group(fun
     ]);
 });
 
-Route::post('cart', function (Request $request) {
+Route::post('cart', function (\Illuminate\Http\Request $request) {
     $product = \App\Product::findOrFail($request->product_id);
 
-    \request()->session()->push('cart', $product);
+    $cartContent = session( 'cart', collect());
+    $cartContent->add($product);
+
+    session(['cart' => $cartContent]);
 
     return response()->json([
         'session' => session('cart') ?? 'failed'
