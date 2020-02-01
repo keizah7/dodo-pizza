@@ -15,10 +15,15 @@ class CartController extends Controller
      */
     public function index()
     {
+        $products = session( 'cart', collect());
+        $idCounts = $products->countBy('id')->toArray();
+
+        $products = $products->unique('id')->each(fn($item) => $item->count = $idCounts[$item->id]);
+
         return view(
             'cart.index',
             [
-                'products' => session('cart') ?? []
+                'products' => $products
             ]
         );
     }

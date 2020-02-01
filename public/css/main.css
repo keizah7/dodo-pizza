@@ -502,6 +502,10 @@ img {
   margin-bottom: 1em;
 }
 
+.cart__info img {
+  max-width: 100px;
+}
+
 .cart__actions {
   display: -webkit-box;
   display: flex;
