@@ -18,7 +18,7 @@ function hideHeader() {
 }
 
 window.onscroll = function () {
-    this.hideHeader()
+    hideHeader()
 };
 
 /**
@@ -83,6 +83,7 @@ groups.forEach(group => {
 function addEventListenerToProducts() {
     let products = document.querySelectorAll('[data-id]');
 
+    addToCart();
     closeGroupModal();
 
     products.forEach(product => {
@@ -131,4 +132,27 @@ function closeGroupModal() {
             }
         });
     }
+}
+
+function addToCart() {
+    let button = document.querySelector('.modal__button button');
+
+    button.addEventListener('click', function (btn) {
+        console.log(button.dataset.productId);
+        fetch('http://pizza.test/cart', {
+            method: 'POST',
+            body: JSON.stringify({
+                'product_id': button.dataset.productId,
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(response => {
+                alert('Produktas buvo sėkmingai pridėtas į krepšelį')
+            }, error => {
+                console.error('Adding to cart failed: ' + error);
+            });
+    });
 }
