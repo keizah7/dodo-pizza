@@ -1,31 +1,29 @@
 @extends('layouts.main')
 
 @section('content')
+    @include('layouts.carousel')
+
     <section class="pizza">
         @foreach($types as $type)
-            @if($type->groups)
-                <h2 class="pizza__title">{{ $type->title }}</h2>
-            @endif
+            <h2 class="pizza__title">{{ $type->title }}</h2>
             <div class="pizza__content">
                 @foreach($type->groups as $group)
                     <div class="pizza__item">
-                        <a href="{{ route('group.show', $group) }}" class="pizza__img"><img
-                                src="{{ $group->products->first()->photo ?? '/img/products/default.svg' }}"
-                                alt="Pica"></a>
+                        <img class="pizza__img" src="{{ $group->product->photo ?? '/img/products/default.svg' }}" alt="Pica" data-group="{{ $group->id }}">
                         <div class="pizza__info">
                             <h3>{{ $group->title }}</h3>
                             <p>
-                                @foreach($group->products->first()->ingredient as $ingredient)
+                                @foreach($group->product->ingredient as $ingredient)
                                     {{ $ingredient->title }}{{ $loop->last ? '' : ', ' }}
                                 @endforeach
                             </p>
                         </div>
                         <div class="pizza__button">
-                            <button class="btn">nuo {{ $group->products->first()->price }} €</button>
+                            <button class="btn" data-group="{{ $group->id }}">nuo {{ $group->product->price }}</button>
                         </div>
                         <div class="pizza__button from-lg">
-                            <span>nuo {{ $group->products->first()->price }} €</span>
-                            <button class="btn">Pasirinkti</button>
+                            <span>nuo {{ $group->product->price }}</span>
+                            <button class="btn" data-group="{{ $group->id }}">Pasirinkti</button>
                         </div>
                     </div>
                 @endforeach
@@ -33,5 +31,5 @@
         @endforeach
 
     </section>
-@endsection
 
+@endsection

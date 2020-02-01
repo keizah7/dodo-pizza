@@ -50,22 +50,16 @@
             <h3>{{ $group->title }}</h3>
             <p class="muted">{{ $group->product->description }}</p>
             <p>
-                @isset($group->product->ingredient)
-                @foreach($group->product->ingredient as $ingredient)
-                    {{ $ingredient->title }}{{ $loop->last ? '' : ', ' }}
-                @endforeach
-                    @endisset
+                    @foreach($group->product->ingredient as $ingredient)
+                        {{ $ingredient->title }}{{ $loop->last ? '' : ', ' }}
+                    @endforeach
             </p>
         </div>
         <div class="add-to-cart__box">
             @foreach($group->products as $product)
-
                 <span
-                    {{ $id == $product->id ? ' class=is-active' : '' }}
-                    style="width:{{ 100 / $group->products->count()  }}%"><a href="?id={{$product->id}}">{{ $product->size_title }}</a></span>
-{{--                <span style="width:33.333%" class="is-active">Maža</span>--}}
-{{--                <span style="width:33.333%">Vidutinė</span>--}}
-{{--                <span style="width:33.333%">Didelė</span>--}}
+                    {{ $group->product->id == $product->id ? ' class=is-active' : '' }}
+                style="width:{{ 100 / $group->products->count()  }}%"><a href="?id={{$product->id}}">{{ $product->size_title }}</a></span>
             @endforeach
         </div>
 

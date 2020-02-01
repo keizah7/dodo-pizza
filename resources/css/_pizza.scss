@@ -40,6 +40,7 @@
 			display: block;
 			margin: auto;
 			max-width: 100%;
+            cursor: pointer;
 
 			&:hover {
 				margin-top: -5px;
@@ -91,19 +92,19 @@
 	}
 
 	@include has(img) {
+        display: flex;
 		@include from-x-to-lg {
 			grid-area: photo;
-			img {
 				margin-top: -8%;
 				margin-bottom: 8%;
-			}
 		}
 	}
 
 	@include has(button) {
 		@include from-x-to-lg {
 			text-align: left;
-		}
+            grid-area: button;
+        }
 
 		@include from-lg {
 			display: flex;

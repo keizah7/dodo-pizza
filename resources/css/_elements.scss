@@ -3,3 +3,8 @@ p.muted {
 	opacity: .5;
 	@include size(.9);
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+}

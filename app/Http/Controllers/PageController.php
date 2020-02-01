@@ -13,12 +13,9 @@ class PageController extends Controller
 {
     public function index()
     {
-        $types = Type::orderBy('priority')->with([
-            'groups' => function ($query) {
-                $query->orderBy('priority')->with(['products' => function ($q) {
-                    $q->orderBy('priority')->get();
-                }, 'products.ingredient'])->has('products');
-            }
+        $types = Type::oldest('priority')->with([
+            'groups' => fn($q) => $q->oldest('priority'),
+            'groups.product' => fn($q) => $q->oldest('priority')->with('ingredient'),
         ])->has('groups')->get();
 
         return view('index', [
@@ -30,20 +27,27 @@ class PageController extends Controller
     {
         $id = \request('id');
 
-        if($id) {
-            $group->load([
-                'product' => function($query) use ($id) {
-                    $query->find($id);
-                }
-            ]);
-        } else {
+        if ($id) {
             $group
-                ->load(['product' => function($q){
-                    $q->orderBy('priority')->first();
-                }]);
-            $id = $group->product->id;
+                ->load([
+                    'product' => function ($q) use ($id) {
+                        $q->find($id);
+                    },
+                    'products' => function ($q) {
+                        $q->oldest('priority');
+                    },
+                ]);
+        } else {
+            $group->load([
+                'product' => function ($q) {
+                    $q->oldest('priority')->first();
+                },
+                'products' => function ($q) {
+                    $q->oldest('priority');
+                },
+            ]);
         }
 
-        return view('show', compact('group', 'id'));
+        return view('show', compact('group'));
     }
 }
