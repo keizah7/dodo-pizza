@@ -60,6 +60,7 @@
         bottom: 0;
         border-top: 1px solid #e6e6e6;
         box-shadow: 0 -8px 54px rgba(0,0,0,.08);
+        z-index: 2;
     }
 
     @include has(price) {

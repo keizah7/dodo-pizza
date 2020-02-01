@@ -15,7 +15,7 @@
                         </div>
 
                     </div>
-                    <p>{{ $product->price }}</p>
+                    <p>{{ $product->price * $product->count }} {{ config('app.currency') }}</p>
                 </div>
                 <div class="cart__actions">
                     <div class="cart__delete">
@@ -53,7 +53,8 @@
     <div class="cart__order">
         <div class="cart__price">
             <p>Užsakymo suma:</p>
-            <p>{{ $products->pluck('price')->sum() }}</p>
+            <p>{{ $products->pluck('price')->sum() }} {{ config('app.currency') }}</p>
+{{--            // padauginti is kiekio--}}
         </div>
         <div class="cart__buttons">
             <a href="{{ route('cart.shipping') }}" class="btn btn--block">Pristatymas</a>
