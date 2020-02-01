@@ -13,37 +13,13 @@ class PageController extends Controller
 {
     public function index()
     {
-        $types = Type::orderBy('priority')->with([
-            'groups' => function ($query) {
-                $query->orderBy('priority')->with(['products' => function ($q) {
-                    $q->orderBy('priority')->get();
-                }, 'products.ingredient'])->has('products');
-            }
+        $types = Type::oldest('priority')->with([
+            'groups' => fn($q) => $q->oldest('priority'),
+            'groups.product' => fn($q) => $q->oldest('priority')->with('ingredient'),
         ])->has('groups')->get();
 
         return view('index', [
             'types' => $types,
         ]);
-    }
-
-    public function show(Group $group)
-    {
-        $id = \request('id');
-
-        if($id) {
-            $group->load([
-                'product' => function($query) use ($id) {
-                    $query->find($id);
-                }
-            ]);
-        } else {
-            $group
-                ->load(['product' => function($q){
-                    $q->orderBy('priority')->first();
-                }]);
-            $id = $group->product->id;
-        }
-
-        return view('show', compact('group', 'id'));
     }
 }
