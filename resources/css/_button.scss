@@ -47,5 +47,6 @@
 	@include and(block) {
 		display: block;
         @include size(.7);
+        width: 100%;
 	}
 }

@@ -6,7 +6,6 @@
         </svg>
     </div>
     <div class="modal__content">
-
         <div class="modal__left">
             <img class="modal__image"
                  src="{{ $group->product->photo ?? 'default.svg' }}"
@@ -31,8 +30,11 @@
                 @endforeach
             </div>
 
-            <div class="modal__button"><a href="{{ route('cart.update', $group->product->id) }}" class="btn btn--block">Įdėti
-                    į krepšelį už {{ $group->product->price }}</a></div>
+            <div class="modal__button">
+                <button class="btn btn--block" data-product-id="{{ $group->product->id }}">
+                    Įdėti į krepšelį už {{ $group->product->price }}
+                </button>
+            </div>
         </div>
 
     </div>

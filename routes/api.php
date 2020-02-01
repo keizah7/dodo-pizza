@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::post('/modal/product', function (Request $request) {
+Route::post('modal/product', function (Request $request) {
     $group = \App\Group::findOrFail($request->group_id);
     $id = \request('product_id');
 

@@ -125,7 +125,7 @@ function hideHeader() {
 }
 
 window.onscroll = function () {
-  this.hideHeader();
+  hideHeader();
 };
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -183,6 +183,7 @@ groups.forEach(function (group) {
 
 function addEventListenerToProducts() {
   var products = document.querySelectorAll('[data-id]');
+  addToCart();
   closeGroupModal();
   products.forEach(function (product) {
     product.addEventListener('click', function () {
@@ -227,6 +228,28 @@ function closeGroupModal() {
       }
     });
   }
+}
+
+function addToCart() {
+  var button = document.querySelector('.modal__button button');
+  button.addEventListener('click', function (btn) {
+    console.log(button.dataset.productId);
+    fetch('http://pizza.test/cart', {
+      method: 'POST',
+      body: JSON.stringify({
+        'product_id': button.dataset.productId
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (response) {
+      alert('Produktas buvo sėkmingai pridėtas į krepšelį');
+    }, function (error) {
+      console.error('Adding to cart failed: ' + error);
+    });
+  });
 }
 
 /***/ }),
