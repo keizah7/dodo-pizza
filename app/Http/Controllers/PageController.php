@@ -22,32 +22,4 @@ class PageController extends Controller
             'types' => $types,
         ]);
     }
-
-    public function show(Group $group)
-    {
-        $id = \request('id');
-
-        if ($id) {
-            $group
-                ->load([
-                    'product' => function ($q) use ($id) {
-                        $q->find($id);
-                    },
-                    'products' => function ($q) {
-                        $q->oldest('priority');
-                    },
-                ]);
-        } else {
-            $group->load([
-                'product' => function ($q) {
-                    $q->oldest('priority')->first();
-                },
-                'products' => function ($q) {
-                    $q->oldest('priority');
-                },
-            ]);
-        }
-
-        return view('show', compact('group'));
-    }
 }
