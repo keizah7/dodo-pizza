@@ -102,9 +102,12 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy(Product $product)
     {
-        \request()->session()->flush();
+        $cartContent = session( 'cart', collect());
+        $cartContent = $cartContent->where('id', '!=', $product->id);
+
+        session(['cart' => $cartContent]);
 
         return redirect()->back();
     }

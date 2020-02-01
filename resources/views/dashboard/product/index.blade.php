@@ -80,7 +80,7 @@
                                             <form action="{{ route('dashboard.product.destroy', $product->id) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
-                                                <button class="button is-small is-danger" product="submit" title="@lang('dashboard.button.delete')">
+                                                <button class="button is-small is-danger" type="submit" title="@lang('dashboard.button.delete')">
                                                     <span class="icon">
                                                         <i class="fas fa-trash"></i>
                                                     </span>

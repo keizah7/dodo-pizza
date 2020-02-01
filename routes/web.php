@@ -13,14 +13,10 @@
 
 Route::get('/', 'PageController@index')->name('index');
 
-Route::get('show/{group}', 'PageController@show')->name('group.show');
-
-Route::get('cart/cancel', 'CartController@destroy')->name('cart.destroy');
-Route::get('cart/shipping', 'CartController@shipping')->name('cart.shipping');
 Route::get('cart', 'CartController@index')->name('cart');
+Route::get('cart/shipping', 'CartController@shipping')->name('cart.shipping');
 Route::get('cart/takeout', 'CartController@takeout')->name('cart.takeout');
-//Route::get('cart/{product}', 'CartController@update')->name('cart.update');
-Route::delete('cart/{product}', 'CartController@delete')->name('cart.delete');
+Route::delete('cart/{product}', 'CartController@destroy')->name('cart.destroy');
 
 Auth::routes();
 
