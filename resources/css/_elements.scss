@@ -8,3 +8,17 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+.notification {
+    margin-top: 1em;
+    @extend .container;
+    padding: 1em;
+    width: 100%;
+    border: 1px solid black;
+
+    &.is-success {
+        background: #dff0d8;
+        color: #3c763d;
+        border-color: #d6e9c6;
+    }
+}

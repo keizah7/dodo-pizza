@@ -11,6 +11,6 @@ class GroupsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Group::class, rand(4, 11))->create();
+        factory(\App\Group::class, rand(5, 10))->create();
     }
 }

@@ -13,13 +13,7 @@
 
 Route::get('/', 'PageController@index')->name('index');
 
-//Route::group(['middleware' => 'cart.is.null'], function () {
-    Route::resource('cart', 'CartController');
-//    Route::post('cart', 'CartController@')
-//    Route::get('cart', 'CartController@index')->name('cart');
-//    Route::get('cart/create', 'CartController@create')->name('cart.create');
-//    Route::delete('cart/{product}', 'CartController@destroy')->name('cart.destroy');
-//});
+Route::resource('cart', 'CartController'); //'middleware' => 'cart.is.null'
 
 Auth::routes();
 
@@ -43,7 +37,7 @@ Route::middleware('auth')->name('dashboard.')->namespace('Dashboard')->group(fun
 Route::post('modal/add', function (\Illuminate\Http\Request $request) {
     $product = \App\Product::findOrFail($request->product_id);
 
-    $cartContent = session( 'cart', collect());
+    $cartContent = session('cart', collect());
     $cartContent->add($product);
 
     session(['cart' => $cartContent]);
@@ -52,3 +46,7 @@ Route::post('modal/add', function (\Illuminate\Http\Request $request) {
         'session' => session('cart') ?? 'failed'
     ], 200);
 });
+
+Route::match(['GET', 'POST'], 'paysera/accept', 'CartController@accept')->name('paysera.accept');
+Route::match(['GET', 'POST'], 'paysera/cancel', 'CartController@cancel')->name('paysera.cancel');
+Route::match(['GET', 'POST'], 'paysera/callback', 'CartController@callback')->name('paysera.callback');

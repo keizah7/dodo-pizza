@@ -81,7 +81,8 @@ body * {
 .cart__title,
 .mobile-nav__content,
 .nav__content,
-.header__content {
+.header__content,
+.notification {
   width: 95%;
   margin: auto;
   max-width: 1300px;
@@ -97,6 +98,19 @@ p.muted {
 img {
   max-width: 100%;
   height: auto;
+}
+
+.notification {
+  margin-top: 1em;
+  padding: 1em;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.notification.is-success {
+  background: #dff0d8;
+  color: #3c763d;
+  border-color: #d6e9c6;
 }
 
 .header {
@@ -538,7 +552,7 @@ img {
 
 .cart__order {
   box-shadow: 0 -8px 54px rgba(0, 0, 0, 0.08);
-  padding: 1em 0;
+  padding: 1em;
   margin-bottom: 1em;
 }
 
