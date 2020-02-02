@@ -19,7 +19,7 @@ class CreateClientsTable extends Migration
             $table->string('email', 255)->nullable();
             $table->string('phone', 255)->nullable();
             $table->string('address', 255)->nullable();
-            $table->text('comment');
+            $table->text('comment')->nullable();
             $table->boolean('delivery')->default(false);
             $table->unsignedBigInteger('pickup_id')->nullable();
             $table->timestamps();

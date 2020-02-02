@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Client;
+use App\Order;
 use App\Pickup;
 use App\Product;
+use App\Services\Paysera;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -17,13 +19,13 @@ class CartController extends Controller
     public function index()
     {
         $products = session( 'cart', collect());
+        $totalPrice = $products->pluck('price')->sum();
+
         $idCounts = $products->countBy('id')->toArray();
 
         $products = $products->unique('id')->each(fn($item) => $item->count = $idCounts[$item->id]);
 
-        return view('cart.index',[
-            'products' => $products
-        ]);
+        return view('cart.index', compact('products', 'totalPrice'));
     }
 
     /**
@@ -47,11 +49,12 @@ class CartController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param Paysera $paysera
+     * @return void
      */
-    public function store(Request $request)
+    public function store(Request $request, Paysera $paysera)
     {
-        Client::create($request->validate([
+        $user = Client::create($request->validate([
             'name' => 'required|min:3|max:255',
             'phone' => 'required_with:delivery|min:8|max:255',
             'email' => 'required|email|max:255',
@@ -61,7 +64,62 @@ class CartController extends Controller
             'pickup_id' => 'required_without:delivery'
         ]));
 
-//        dd($request->all());
+        $cart = session('cart');
+        $deliveryPrice = 1;
+        $price = $cart->pluck('price')->sum();
+        $finalPrice = $deliveryPrice + $price;
+
+        $order = Order::create([
+            'status' => 0,
+            'price' => $finalPrice,
+            'delivery_price' => $deliveryPrice,
+            'cart_price' => $price,
+            'client_id' => $user->id,
+        ]);
+
+        $order->product()->attach(session('cart')->pluck('id')->toArray());
+
+        session()->flush();
+
+        $paysera->pay(
+            $request->email,
+            $finalPrice,
+            $order->id,
+        );
+    }
+
+    /**
+     * @param Paysera $paysera
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function accept(Paysera $paysera) {
+        $info = $paysera->getPayment();
+        $order = Order::findOrFail($info['id']);
+
+        if($order->status != $info['status']) {
+            $order->update([
+                'status' => $info['status']
+            ]);
+        }
+
+        return redirect()->route('cart.index')->with('message', 'Mokėjimas atliktas');
+    }
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function cancel() {
+        return redirect()->route('cart.index')->with('message', 'Mokėjimas atšauktas');
+    }
+
+    /**
+     * @param Paysera $paysera
+     * @return string
+     */
+    public function callback(Paysera $paysera) {
+        $info = $paysera->getPayment();
+
+        return 'OK';
     }
 
     /**
@@ -95,9 +153,6 @@ class CartController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        \request()->session()->push('cart', $product);
-
-        return redirect()->back();
     }
 
     /**
