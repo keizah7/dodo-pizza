@@ -13,10 +13,13 @@
 
 Route::get('/', 'PageController@index')->name('index');
 
-Route::get('cart', 'CartController@index')->name('cart');
-Route::get('cart/shipping', 'CartController@shipping')->name('cart.shipping');
-Route::get('cart/takeout', 'CartController@takeout')->name('cart.takeout');
-Route::delete('cart/{product}', 'CartController@destroy')->name('cart.destroy');
+//Route::group(['middleware' => 'cart.is.null'], function () {
+    Route::resource('cart', 'CartController');
+//    Route::post('cart', 'CartController@')
+//    Route::get('cart', 'CartController@index')->name('cart');
+//    Route::get('cart/create', 'CartController@create')->name('cart.create');
+//    Route::delete('cart/{product}', 'CartController@destroy')->name('cart.destroy');
+//});
 
 Auth::routes();
 
@@ -37,7 +40,7 @@ Route::middleware('auth')->name('dashboard.')->namespace('Dashboard')->group(fun
     ]);
 });
 
-Route::post('cart', function (\Illuminate\Http\Request $request) {
+Route::post('modal/add', function (\Illuminate\Http\Request $request) {
     $product = \App\Product::findOrFail($request->product_id);
 
     $cartContent = session( 'cart', collect());

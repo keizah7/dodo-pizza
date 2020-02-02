@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use App\Pickup;
 use App\Product;
 use Illuminate\Http\Request;
@@ -20,34 +21,26 @@ class CartController extends Controller
 
         $products = $products->unique('id')->each(fn($item) => $item->count = $idCounts[$item->id]);
 
-        return view(
-            'cart.index',
-            [
-                'products' => $products
-            ]
-        );
-    }
-
-    public function shipping()
-    {
-        return view('cart.shipping');
-    }
-
-    public function takeout()
-    {
-        $pickups = Pickup::all();
-
-        return view('cart.takeout', compact('pickups'));
+        return view('cart.index',[
+            'products' => $products
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        if($request->delivery) {
+            return view('cart.shipping');
+        }
+
+        $pickups = Pickup::all();
+
+        return view('cart.takeout', compact('pickups'));
     }
 
     /**
@@ -58,7 +51,17 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Client::create($request->validate([
+            'name' => 'required|min:3|max:255',
+            'phone' => 'required_with:delivery|min:8|max:255',
+            'email' => 'required|email|max:255',
+            'delivery' => 'integer',
+            'address' => 'required_with:delivery|min:5|max:255',
+            'comment' => '',
+            'pickup_id' => 'required_without:delivery'
+        ]));
+
+//        dd($request->all());
     }
 
     /**
@@ -100,12 +103,13 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @return \Illuminate\Http\Response
+     * @param Product $product
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Product $product)
+    public function destroy(Product $cart)
     {
         $cartContent = session( 'cart', collect());
-        $cartContent = $cartContent->where('id', '!=', $product->id);
+        $cartContent = $cartContent->where('id', '!=', $cart->id);
 
         session(['cart' => $cartContent]);
 

@@ -138,8 +138,7 @@ function addToCart() {
     let button = document.querySelector('.modal__button button');
 
     button.addEventListener('click', function (btn) {
-        console.log(button.dataset.productId);
-        fetch('http://pizza.test/cart', {
+        fetch('http://pizza.test/modal/add', {
             method: 'POST',
             body: JSON.stringify({
                 'product_id': button.dataset.productId,

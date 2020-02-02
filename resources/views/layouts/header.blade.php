@@ -37,7 +37,7 @@
             <a class="live" href="http://dodopizza.lt">Tiesioginė transliacija</a>
         </div>
 
-        <a href="{{ route('cart') }}" class="btn">Krepšelis</a>
+        <a href="{{ route('cart.index') }}" class="btn">Krepšelis</a>
     </div>
 </nav>
 
@@ -53,7 +53,7 @@
             <a href="#">Kontaktai</a>
             <a href="http://dodopizza.lt">Tiesioginė transliacija</a>
             <a href="{{ route('dashboard.home') }}">Prisijungti</a>
-            <a href="{{ route('cart') }}">Krepšelis</a>
+            <a href="{{ route('cart.index') }}">Krepšelis</a>
         </div>
         <div class="mobile-nav__contacts">
             <img src="https://dodopizza-a.akamaihd.net/site-static/dist/7235e08baa1f74293b90.svg" alt="phone">

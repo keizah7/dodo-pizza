@@ -11,7 +11,7 @@
                         <img src="{{ $product->photo }}" alt="">
                         <div style="margin-left: 1em">
                             <h2>{{ $product->group->title }}</h2>
-                            <p>{{ $product->description }}</p>
+                            <p>{{ $product->description }} ({{ $product->size_title }})</p>
                         </div>
 
                     </div>
@@ -47,18 +47,16 @@
                 @lang('cart.empty')
             </div>
         @endforelse
-    </div>
-
-
-    <div class="cart__order">
-        <div class="cart__price">
-            <p>Užsakymo suma:</p>
-            <p>{{ $products->pluck('price')->sum() }} {{ config('app.currency') }}</p>
-{{--            // padauginti is kiekio--}}
-        </div>
-        <div class="cart__buttons">
-            <a href="{{ route('cart.shipping') }}" class="btn btn--block">Pristatymas</a>
-            <a href="{{ route('cart.takeout') }}" class="btn btn--block">Išsinešimui</a>
+        <div class="cart__order">
+            <div class="cart__price">
+                <p>Užsakymo suma:</p>
+                <p>{{ $products->pluck('price')->sum() }} {{ config('app.currency') }}</p>
+                {{--            // padauginti is kiekio--}}
+            </div>
+            <div class="cart__buttons">
+                <a href="{{ route('cart.create', ['delivery' => 1]) }}" class="btn btn--block">Pristatymas</a>
+                <a href="{{ route('cart.create') }}" class="btn btn--block">Išsinešimui</a>
+            </div>
         </div>
     </div>
 </section>
