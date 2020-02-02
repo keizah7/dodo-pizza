@@ -537,15 +537,9 @@ img {
 }
 
 .cart__order {
-  background: #fff;
-  position: fixed;
-  padding: 1em;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-top: 1px solid #e6e6e6;
   box-shadow: 0 -8px 54px rgba(0, 0, 0, 0.08);
-  z-index: 2;
+  padding: 1em 0;
+  margin-bottom: 1em;
 }
 
 .cart__price {
