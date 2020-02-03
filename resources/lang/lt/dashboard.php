@@ -33,7 +33,6 @@ return [
     'order.empty' => 'Užsakymų sąrašas tuščias',
 
     'data.id' => 'ID',
-    'data.status' => 'Statusas',
     'data.title' => 'Pavadinimas',
     'data.title.placeholder' => 'Įveskite pavadinimą',
     'data.description' => 'Aprašymas',
@@ -53,7 +52,6 @@ S : XX:XX — XX:XX
     'data.photo.empty' => 'Nuotrauka nepasirinkta',
     'data.type_id' => 'Tipas',
     'data.type_id.placeholder' => 'Pasirinkite tipą',
-    'data.client_id' => 'Klientas',
     'data.group_id' => 'Grupė',
     'data.group_id.placeholder' => 'Pasirinkite grupę',
     'data.priority' => 'Prioritetas',
