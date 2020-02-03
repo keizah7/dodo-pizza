@@ -214,6 +214,15 @@
                                     </a>
                                 </li>
 
+                                <li>
+                                    <a href="{{ route('dashboard.order.index') }}" id="dropdown-sample-a"
+                                       class="has-dropdown-label">
+                                        <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                                        <span class="menu-item-label">@lang('dashboard.order.title')</span>
+                                    </a>
+                                </li>
+
+
                                 {{--                                <li>--}}
                                 {{--                                    <a href="{{ route('dashboard.type.index') }}">--}}
                                 {{--                                        <span class="icon"><i class="fas fa-users"></i></span>--}}

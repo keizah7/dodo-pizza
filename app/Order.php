@@ -12,4 +12,14 @@ class Order extends Model
     {
         return $this->belongsToMany(Product::class, 'order_products')->withTimestamps();
     }
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(OrderProduct::class);
+    }
 }
