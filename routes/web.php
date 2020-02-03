@@ -32,6 +32,9 @@ Route::middleware('auth')->name('dashboard.')->namespace('Dashboard')->group(fun
     Route::resource('pickup', 'PickupController', [
         'except' => 'show'
     ]);
+    Route::resource('order', 'OrderController', [
+        'only' => ['index', 'show']
+    ]);
 });
 
 Route::post('modal/add', function (\Illuminate\Http\Request $request) {

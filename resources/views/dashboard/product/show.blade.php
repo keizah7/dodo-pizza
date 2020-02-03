@@ -24,19 +24,7 @@
                     <div class="level-item is-hero-content-item">
                         <div>
                             <h1 class="title is-spaced"><b>{{ $product->size_title }}</b> </h1>
-                                <p>{{ $product->price }} Eur</p>
-{{--                            <div class="level">--}}
-{{--                                <div class="level-left">--}}
-{{--                                    <div class="level-item">--}}
-{{--                                        <br><h3 class="subtitle">Paskutinis prisijungimas <b>04:20</b> iš--}}
-{{--                                            <b>127.0.0.1</b>, Vilnius</h3>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="level-item">--}}
-{{--                                        <button class="button is-small is-hero-button">Ne jūs?</button>--}}
-{{--                                        <p>{{ $product->price }} Eur</p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+                                <p>{{ $product->price }} {{ config('app.currency') }}</p>
 
                             <p>{{ $product->description }}</p>
                         </div>
@@ -66,7 +54,7 @@
                         <span>@lang('dashboard.ingredient.title')</span>
                     </p>
                     <div class="card-header-icon has-button">
-                        <a href="{{ route('dashboard.product.index') }}" product="button"
+                        <a href="{{ route('dashboard.product.index') }}" type="button"
                             class="button is-small has-light-border">
                             <span class="icon"><i class="fas fa-retweet"></i></span>
                             <span>@lang('dashboard.link.refresh.title')</span>
