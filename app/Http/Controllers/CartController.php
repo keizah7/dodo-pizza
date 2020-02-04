@@ -57,7 +57,7 @@ class CartController extends Controller
 
         $user = Client::create($request->validate([
             'name' => 'required|min:3|max:255',
-            'phone' => 'required_with:delivery|min:8|max:255',
+            'phone' => 'required_with:delivery|min:8|max:12',
             'email' => 'required|email|max:255',
             'delivery' => 'integer',
             'address' => 'required_with:delivery|min:5|max:255',

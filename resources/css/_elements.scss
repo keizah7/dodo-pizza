@@ -1,7 +1,19 @@
-p.muted {
-	font-weight: normal;
-	opacity: .5;
-	@include size(.9);
+p {
+    &.muted {
+        font-weight: normal;
+        opacity: .5;
+        @include size(.9);
+    }
+
+    &.help {
+        @include size(.8);
+
+        &.is-danger {
+            color: red;
+            margin-top: -1em;
+            margin-bottom: 2em;
+        }
+    }
 }
 
 img {
