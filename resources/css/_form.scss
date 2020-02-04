@@ -38,6 +38,13 @@
         .control {
             flex:2;
 
+            &.radio {
+                div {
+                    label {
+                    }
+                }
+            }
+
             input, textarea {
                 color: color(dark);
                 border: 1px solid rgba(135,134,134,.32);
