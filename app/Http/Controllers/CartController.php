@@ -56,7 +56,7 @@ class CartController extends Controller
     {
         $user = Client::create($request->validate([
             'name' => 'required|min:3|max:255',
-            'phone' => 'required_with:delivery|min:8|max:255',
+            'phone' => 'required_with:delivery|min:8|max:12',
             'email' => 'required|email|max:255',
             'delivery' => 'integer',
             'address' => 'required_with:delivery|min:5|max:255',
@@ -65,7 +65,7 @@ class CartController extends Controller
         ]));
 
         $cart = session('cart');
-        $deliveryPrice = 1;
+        $deliveryPrice = $request->delivery == 1 ? 1 : 0;
         $price = $cart->pluck('price')->sum();
         $finalPrice = $deliveryPrice + $price;
 
@@ -78,8 +78,6 @@ class CartController extends Controller
         ]);
 
         $order->product()->attach(session('cart')->pluck('id')->toArray());
-
-        session()->flush();
 
         $paysera->pay(
             $request->email,
@@ -101,6 +99,7 @@ class CartController extends Controller
                 'status' => $info['status']
             ]);
         }
+        session()->flush();
 
         return redirect()->route('cart.index')->with('message', 'Mokėjimas atliktas');
     }
@@ -118,6 +117,14 @@ class CartController extends Controller
      */
     public function callback(Paysera $paysera) {
         $info = $paysera->getPayment();
+
+        $order = Order::findOrFail($info['id']);
+
+        if($order->status != $info['status']) {
+            $order->update([
+               'status' => $info['status']
+           ]);
+        }
 
         return 'OK';
     }
