@@ -11,6 +11,7 @@ return [
     'address.placeholder' => 'Įveskite adresą',
     'comment' => 'Komentaras',
     'comment.placeholder' => 'Įveskite komentarą',
+    'pickup_id' => 'Picerija',
 
     'button.order' => 'Užsakyti',
     'button.back' => 'Atgal',

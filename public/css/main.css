@@ -187,26 +187,6 @@ img {
   display: none;
 }
 
-.header--is-opened {
-  background: #000;
-}
-
-.header--is-opened .header__logo a:first-child {
-  display: none;
-}
-
-.header--is-opened .header__logo a:last-child {
-  display: unset;
-}
-
-.header--is-opened .header__trigger img:first-child {
-  display: none;
-}
-
-.header--is-opened .header__trigger img:last-child {
-  display: unset;
-}
-
 .nav {
   background: white;
   padding: 0.5em 0 0.5em 0;
@@ -282,6 +262,27 @@ img {
 .nav__logo {
   margin-right: 1em;
   display: none;
+}
+
+.nav--is-opened {
+  background: #000;
+  z-index: 2;
+}
+
+.nav--is-opened .header__logo a:first-child {
+  display: none;
+}
+
+.nav--is-opened .header__logo a:last-child {
+  display: unset;
+}
+
+.nav--is-opened .header__trigger img:first-child {
+  display: none;
+}
+
+.nav--is-opened .header__trigger img:last-child {
+  display: unset;
 }
 
 @-webkit-keyframes pulse {
@@ -612,7 +613,7 @@ img {
 }
 
 .carousel__slide img {
-  max-width: 100%;
+  width: 100%;
 }
 
 .carousel__dot {
@@ -761,8 +762,8 @@ img {
 
 @media (min-width: 400px) and (max-width: 991px) {
   .pizza__item img:hover {
-    margin-top: -6%;
-    margin-bottom: 6%;
+    margin-top: -1%;
+    margin-bottom: 1%;
   }
 }
 

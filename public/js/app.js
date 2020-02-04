@@ -109,8 +109,14 @@ document.querySelectorAll('.header__trigger').forEach(function (item) {
 });
 
 function toggleMobileNav() {
-  document.querySelector('header').classList.toggle('header--is-opened');
-  document.querySelector('.mobile-nav').classList.toggle('mobile-nav--is-opened');
+  var nav = document.querySelector('nav');
+  var mobileNav = document.querySelector('.mobile-nav');
+  nav.classList.toggle('nav--is-opened');
+  mobileNav.classList.toggle('mobile-nav--is-opened');
+  window.addEventListener('resize', function () {
+    nav.classList.remove('nav--is-opened');
+    mobileNav.classList.remove('mobile-nav--is-opened');
+  });
 }
 
 var navbar = document.querySelector("nav");

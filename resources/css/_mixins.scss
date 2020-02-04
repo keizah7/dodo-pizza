@@ -18,7 +18,7 @@
 /* media */
 @mixin to-md {
     @media (max-width: #{$md}) {
-        @content
+        @content;
     }
 }
 
@@ -39,9 +39,6 @@
 		@content;
 	}
 }
-
-
-
 
 @mixin till-sm-end {
 	@media (max-width: #{$sm - 1}) {

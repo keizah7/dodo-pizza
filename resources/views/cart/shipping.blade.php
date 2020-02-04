@@ -47,6 +47,7 @@
                 </div>
                 @error('comment')<p class="help is-danger">{{ $message }}</p>@enderror
 
+                <input type="hidden" name="delivery" value="1">
 
                 <div class="field is-grouped">
                     <div class="control">
@@ -54,7 +55,7 @@
                             class="btn btn--white btn--square">@lang('data.button.back')</a>
                     </div>
                     <div class="control">
-                        <button class="btn is-primary">@lang('data.button.order')</button>
+                        <button type="submit" class="btn is-primary">@lang('data.button.order')</button>
                     </div>
                 </div>
             </form>

@@ -1,22 +1,4 @@
-<header class="header">
-    <div class="header__content till-lg">
-        <div class="flex">
-            <div class="header__logo">
-                <a href="{{ route('index') }}"><img src="/img/logo.jpg"
-                        alt="Logotipas"></a>
-                <a href="{{ route('index') }}"><img src="/img/logo-black.jpg"
-                        alt="Logotipas"></a>
-            </div>
-            <div class="header__trigger">
-                <img src="/img/toggle.svg"
-                    alt="Atidaryti meniu">
-                <img src="/img/close.svg"
-                    alt="Uždaryti meniu">
-            </div>
-        </div>
-
-    </div>
-
+<header class="header from-lg">
     <div class="header__content from-lg">
         <div class="grid">
             <a href="{{ route('index') }}"><img src="/img/logotipas.png"
@@ -42,8 +24,23 @@
         </div>
     </div>
 </header>
-<nav class="nav from-lg">
-    <div class="nav__content">
+<nav class="nav">
+    <div class="nav__content till-lg">
+            <div class="header__logo">
+                <a href="{{ route('index') }}"><img src="/img/logo.jpg"
+                        alt="Logotipas"></a>
+                <a href="{{ route('index') }}"><img src="/img/logo-black.jpg"
+                        alt="Logotipas"></a>
+            </div>
+            <div class="header__trigger">
+                <img src="/img/toggle.svg"
+                    alt="Atidaryti meniu">
+                <img src="/img/close.svg"
+                    alt="Uždaryti meniu">
+        </div>
+
+    </div>
+    <div class="nav__content from-lg">
         <div class="nav__links">
             <div class="nav__logo"><a href="/"><img src="/img/dodo.png"
                         alt="Logo"></a></div>
