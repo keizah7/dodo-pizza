@@ -79,7 +79,6 @@ class CartController extends Controller
         ]);
 
         $order->product()->attach(session('cart')->pluck('id')->toArray());
-//        session()->flush();
 
         $paysera->pay(
             $request->email,
@@ -119,6 +118,14 @@ class CartController extends Controller
      */
     public function callback(Paysera $paysera) {
         $info = $paysera->getPayment();
+
+        $order = Order::findOrFail($info['id']);
+
+        if($order->status != $info['status']) {
+            $order->update([
+               'status' => $info['status']
+           ]);
+        }
 
         return 'OK';
     }
