@@ -88,11 +88,13 @@
                                 {{--                                    <span>Žinutės</span>--}}
                                 {{--                                </a>--}}
                                 {{--                                <hr class="navbar-divider">--}}
-                                <a class="navbar-item" href="/">
+                                <a class="navbar-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                                     <span class="icon">
                                         <i class="fas fa-sign-out-alt"></i>
                                     </span>
-                                    <span>@lang('dashboard.link.log.out.title')</span>
+                                    <span>{{ __('page.logout.title') }}</span>
                                 </a>
                             </div>
                         </div>
@@ -290,10 +292,15 @@
                             </p> -->
                             <ul class="menu-list">
                                 <li>
-                                    <a href="/" class="is-state-info is-hoverable">
+                                    <a class="is-state-info is-hoverable" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                                         <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
-                                        <span class="menu-item-label">Atsijungti</span>
+                                        <span class="menu-item-label">{{ __('page.logout.title') }}</span>
                                     </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                                 </li>
                             </ul>
                         </div>

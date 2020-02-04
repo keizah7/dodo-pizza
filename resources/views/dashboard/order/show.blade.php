@@ -24,6 +24,13 @@
                             <p>{{ $order->price }} {{ config('app.currency') }} ({{ $order->status }})</p>
 
                             <p>{{ $order->description }}</p>
+                            <p>
+                                @if($order->client->delivery)
+                                    {{ $order->client->address }}
+                                @else
+                                    {{ $order->client->pickup->title }}
+                                @endif
+                            </p>
                         </div>
                     </div>
                 </div>
