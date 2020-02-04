@@ -54,7 +54,6 @@ class CartController extends Controller
      */
     public function store(Request $request, Paysera $paysera)
     {
-
         $user = Client::create($request->validate([
             'name' => 'required|min:3|max:255',
             'phone' => 'required_with:delivery|min:8|max:12',
@@ -66,7 +65,7 @@ class CartController extends Controller
         ]));
 
         $cart = session('cart');
-        $deliveryPrice = 1;
+        $deliveryPrice = $request->delivery == 1 ? 1 : 0;
         $price = $cart->pluck('price')->sum();
         $finalPrice = $deliveryPrice + $price;
 
