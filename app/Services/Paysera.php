@@ -58,7 +58,7 @@ class Paysera
             //0 - apmokėjimas neįvyko
             //1 - apmokėta sėkmingai
             //2 - mokėjimo nurodymas priimtas, bet dar neįvykdytas(šis statusas negarantuoja, kad mokėjimas bus įvykdytas)
-            //3 - papildoma mokėjimo informacija
+            //3 - 0
 
 
             return [

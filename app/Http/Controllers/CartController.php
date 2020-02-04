@@ -54,6 +54,7 @@ class CartController extends Controller
      */
     public function store(Request $request, Paysera $paysera)
     {
+
         $user = Client::create($request->validate([
             'name' => 'required|min:3|max:255',
             'phone' => 'required_with:delivery|min:8|max:255',
@@ -78,8 +79,7 @@ class CartController extends Controller
         ]);
 
         $order->product()->attach(session('cart')->pluck('id')->toArray());
-
-        session()->flush();
+//        session()->flush();
 
         $paysera->pay(
             $request->email,
@@ -101,6 +101,7 @@ class CartController extends Controller
                 'status' => $info['status']
             ]);
         }
+        session()->flush();
 
         return redirect()->route('cart.index')->with('message', 'Mokėjimas atliktas');
     }
