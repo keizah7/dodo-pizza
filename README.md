@@ -16,7 +16,7 @@
 - BACK-END (PHP (Laravel 6))
 - Integruoti Paysera mokėjimus
 
-This project is for educational porpuses only. Pull request are welcome, but priority for my real-life students! Thank you for your cooperation!
+This project is for educational porpuses only. Pull request are welcome! Thank you for your cooperation!
 
 Site published at https://keizah7.github.io/dodo-pizza/index.html
 
