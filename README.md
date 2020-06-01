@@ -18,7 +18,7 @@
 
 This project is for educational porpuses only. Pull request are welcome! Thank you for your cooperation!
 
-Site published at https://keizah7.github.io/dodo-pizza/index.html
+Site published at https://keizah7.github.io/dodo-pizza/index.html (only html template)
 
 Example: [dodopizza.lt](https://dodopizza.lt)
 
