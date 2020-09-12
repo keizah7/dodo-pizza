@@ -68,7 +68,7 @@ groups.forEach(group => {
     group.addEventListener('click', function () {
         groupId = group.dataset.group;
 
-        fetch('http://pizza.test/api/modal/product', {
+        fetch('/api/modal/product', {
             method: 'POST',
             body: JSON.stringify({
                 'group_id': groupId
@@ -95,7 +95,7 @@ function addEventListenerToProducts() {
 
     products.forEach(product => {
         product.addEventListener('click', function () {
-            fetch('http://pizza.test/api/modal/product', {
+            fetch('/api/modal/product', {
                 method: 'POST',
                 body: JSON.stringify({
                     'product_id': product.dataset.id,
@@ -145,7 +145,7 @@ function addToCart() {
     let button = document.querySelector('.modal__button button');
 
     button.addEventListener('click', function (btn) {
-        fetch('http://pizza.test/modal/add', {
+        fetch('/modal/add', {
             method: 'POST',
             body: JSON.stringify({
                 'product_id': button.dataset.productId,
