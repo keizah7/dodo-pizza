@@ -6,8 +6,6 @@
 ![Watchers](https://img.shields.io/github/watchers/keizah7/dodo-pizza?style=social)
 ![Contributors](https://img.shields.io/github/contributors/keizah7/dodo-pizza)
 
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
-
 # Laravel Pizzeria
 ### BIT užduotis:
 
