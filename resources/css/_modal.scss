@@ -1,0 +1,109 @@
+.modal {
+    background-color: rgba(0, 0, 0, .5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 2;
+    cursor: zoom-out;
+
+    @include has(content) {
+        background: color(light);
+        border-radius: 9px;
+        cursor: default;
+        padding: 1.5em 2.5em;
+        z-index: 2;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: space-between;
+        overflow-y: auto;
+        height: 80vh;
+        width: 90vw;
+        max-height: 680px;
+        max-width: 800px;
+    }
+
+    @include has(close) {
+        position: absolute;
+        right: 1em;
+        top: 1em;
+        transform: scale(.6);
+
+        &:hover {
+            transform: scale(.7);
+            cursor: pointer;
+        }
+    }
+
+    @include has(left) {
+        background: rgb(252, 252, 252) none repeat scroll 0% 0%;
+        display: flex;
+        margin: auto;
+        flex-basis: 60%;
+    }
+
+    @include has(right) {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 40%;
+    }
+
+    @include has(image) {
+        margin: auto;
+    }
+
+    @include has(info) {
+        margin-bottom: 1em;
+
+        h3 {
+            @include size(1.5);
+        }
+
+        p {
+            @include size(.9);
+            max-width: 90%;
+
+            &.muted {
+                opacity: .7;
+            }
+        }
+    }
+
+    @include has(box) {
+        background-color: rgb(241, 242, 245);
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+        border-top: 1px solid #e6e6e6;
+        margin-bottom: 1em;
+
+        span {
+            color: lighten(color(dark), 50%);
+            cursor: pointer;
+            padding: .5em 0em;
+            text-align: center;
+            @include size(.7);
+            margin: 1px 2px 2px 2px;
+            transition: color 0.2s ease-out 0s;
+
+            &.is-active {
+                background: color(light);
+                color: color(dark);
+                box-shadow: rgba(6, 5, 50, 0.19) 0px 10px 20px;
+                border-radius: 8px;
+            }
+            &:hover {
+                color: color(dark);
+            }
+        }
+    }
+
+    @include has(button) {
+        margin-top: auto;
+    }
+}

@@ -29,6 +29,11 @@
 		}
 	}
 
+    @include and(square) {
+        border-radius: 100px;
+        padding: .3em 1.4em;
+    }
+
 	@include and(outline-white) {
 		border: 1px solid color(light);
 		padding: .5em 1em;
@@ -41,5 +46,7 @@
 
 	@include and(block) {
 		display: block;
+        @include size(.7);
+        width: 100%;
 	}
 }

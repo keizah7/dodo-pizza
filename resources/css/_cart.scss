@@ -1,0 +1,80 @@
+.cart {
+    @include has(title) {
+        @extend .container;
+        margin-top: 1em;
+        margin-bottom: 1.5em;
+    }
+
+    @include has(content) {
+        @extend .container;
+    }
+
+    @include has(item) {
+        background: #f3f3f3;
+        border-radius: 10px;
+        padding: 1em;
+        margin-bottom: 1em;
+    }
+
+    @include has(info) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1em;
+
+        img {
+            max-width: 100px;
+        }
+    }
+
+    @include has(actions) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    @include has(delete) {
+         &:hover {
+             cursor: pointer;
+             transform: scale(1.2);
+             svg {
+                 color: color(primary);
+             }
+         }
+    }
+
+    @include has(quantity) {
+        display: flex;
+        align-items: center;
+        p {
+            padding: .3em 1em;
+        }
+    }
+
+    @include has(order) {
+        box-shadow: 0 -8px 54px rgba(0,0,0,.08);
+        padding: 1em;
+        margin-bottom: 1em;
+    }
+
+    @include has(price) {
+        @include size(1.2);
+        margin-bottom: 1em;
+        font-weight: bolder;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    @include has(buttons) {
+        display: flex;
+        justify-content: space-between;
+
+        a {
+            flex: 1;
+
+            &:first-of-type {
+                margin-right: 1em;
+            }
+        }
+    }
+}
