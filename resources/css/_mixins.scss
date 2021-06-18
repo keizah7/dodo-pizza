@@ -16,12 +16,6 @@
 }
 
 /* media */
-@mixin to-md {
-    @media (max-width: #{$md}) {
-        @content;
-    }
-}
-
 @mixin from-x-to-md {
 	@media (min-width: 400px) and (max-width: #{$md - 1}) {
 		@content;
@@ -39,6 +33,9 @@
 		@content;
 	}
 }
+
+
+
 
 @mixin till-sm-end {
 	@media (max-width: #{$sm - 1}) {

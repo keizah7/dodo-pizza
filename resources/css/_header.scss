@@ -63,6 +63,28 @@
 			}
 		}
 	}
+
+	@include and(is-opened) {
+		background: color(dark);
+
+		.header__logo {
+			a:first-child {
+				display: none;
+			}
+			a:last-child {
+				display: unset;
+			}
+		}
+
+		.header__trigger {
+			img:first-child {
+				display: none;
+			}
+			img:last-child {
+				display: unset;
+			}
+		}
+	}
 }
 
 .nav {
@@ -132,30 +154,6 @@
 		margin-right: 1em;
 		display: none;
 	}
-
-@include and(is-opened) {
-    background: color(dark);
-    z-index: 2;
-
-    .header__logo {
-        a:first-child {
-            display: none;
-        }
-        a:last-child {
-            display: unset;
-        }
-    }
-
-    .header__trigger {
-        img:first-child {
-            display: none;
-        }
-        img:last-child {
-            display: unset;
-        }
-    }
-}
-
 }
 
 @keyframes pulse {

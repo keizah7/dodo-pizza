@@ -1,0 +1,170 @@
+.add-to-cart,
+.overlay {
+	display: none;
+}
+
+.overlay {
+	background: color(dark);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	opacity: .5;
+}
+
+.add-to-cart {
+	background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+	color: color(dark);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	padding: 1em;
+
+	@include has(content) {
+	}
+
+	@include has(back) {
+		position: absolute;
+	}
+
+	@include has(cart) {
+		position: absolute;
+		right: 1em;
+	}
+
+	@include has(close) {
+		display: none;
+		
+		@include from-lg {
+			display: unset;
+		}
+	}
+
+	@include has(img) {
+		display: block;
+		margin: auto;
+
+		@include from-lg {
+			grid-area: img;
+			max-width: 450px;
+		}
+	}
+
+	@include has(info) {
+		margin-bottom: 1em;
+
+		@include from-lg {
+			grid-area: info;
+		}
+
+		h3 {
+			@include size(1.5);
+		}
+
+		p {
+			@include size(.9);
+
+			&.muted {
+				opacity: .7;
+			}
+		}
+	}
+
+	@include has(box) {
+		background-color: rgb(241, 242, 245);
+		border-radius: 8px;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: .5em;
+		overflow: hidden;
+		border-top: 1px solid #e6e6e6;
+
+		@include from-lg {
+			&:nth-child(5) {
+				grid-area: box;
+			}
+		}
+
+		span {
+			color: lighten(color(dark), 50%);
+			cursor: pointer;
+			padding: .5em 0em;
+			text-align: center;
+			@include size(.8);
+			margin: 1px;
+
+			&.is-active {
+				background: color(light);
+				color: color(dark);
+				box-shadow: rgba(6, 5, 50, 0.19) 0px 10px 20px;
+				border-radius: 8px;
+			}
+		}
+	}
+
+	@include has(add) {
+		background: color(white);
+		position: fixed;
+		padding: 1em;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		box-shadow: rgba(0, 0, 0, 0.08) 0px -8px 54px;
+
+		@include from-lg {
+			box-shadow: none;
+			position: unset;
+			grid-area: button;
+			padding: 0;
+			align-self: end;
+
+			a.orange-cart {
+				border: none;
+			}
+		}
+	}
+
+	@include from-lg {
+		top: 50%;
+		left: 50%;
+		bottom: unset;
+		right: unset;
+		transform: translate(-50%, -50%);
+		background: white;
+		border-radius: 20px;
+		padding: 0;
+
+		.btn--white {
+			display: none;
+		}
+
+		@include has(close) {
+			position: absolute;
+			right: -2.5em;
+			top: 1em;
+
+			&:hover {
+				transform: scale(1.1);
+				cursor: pointer;
+			}
+		}
+
+		@include has(content){
+			padding: 2em;
+			display: grid;
+			grid-template-areas: 'img info' 'img box' 'img .' 'img button';
+			grid-template-rows: 1fr auto 1fr 1fr;
+			grid-template-columns: auto 1fr;
+			gap: 0 2em;
+
+			.round {
+				display: none;
+			}
+		}
+	}
+}
